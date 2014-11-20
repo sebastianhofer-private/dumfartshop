@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'icons';
+  src: url('../fonts/icons.eot');
+  src: url('../fonts/icons.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/icons.woff') format('woff'),
+  url('../fonts/icons.ttf') format('truetype'),
+  url('../fonts/icons.svg#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class*='ds-icon-'] {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+[class*='ds-icon-'] {
+  font-family: "icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+@include icon('lock',               '000');
+@include icon('chevron-up',         '001');
+@include icon('chevron-right',      '002');
+@include icon('chevron-down',       '003');
+@include icon('chevron-left',       '004');
+@include icon('checkmark',          '005');
+@include icon('map-marker',         '006');
+@include icon('phone',              '007');
+@include icon('mail',               '008');
+@include icon('info',               '009');
+@include icon('molecule',           '00a');
+@include icon('facebook',           '00b') {
+  color: #3b5999;
+};
+@include icon('twitter',            '00c') {
+  color: #00b0ec;
+};
+@include icon('gplus',              '00d') {
+  color: #de4b39;
+}
+@include icon('xing',               '00e');
+@include icon('geld-blog',          '00f');
+@include icon('speech-bubble-left', '010');
+@include icon('speech-bubble-right','011');
+@include icon('bars',               '012');
+@include icon('tv',                 '013');
+@include icon('lightbulb',          '014');
+@include icon('close',              '015');
+@include icon('briefcase',          '016');
+@include icon('calculator',         '017');
+@include icon('trophy',             '018');
+@include icon('arrow-angled-up',    '019');
+@include icon('magnifier',          '01a');
+@include icon('logo',               '01b');
+@include icon('bars',               '012');
+
+.ds-icon-float-right {
+  float: right;
+}

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8"> <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9"> <![endif]-->
+<!--[if gt IE 9]>  <html> <![endif]-->
+<!--[if !IE]><!--> <html>             <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Document</title>
+
+	<script src="assets/jquery.min.js"></script>
+	<!--<script src="assets/modernizr.js"></script>-->
+
+
+	<link rel="stylesheet" href="assets/jasny-bootstrap.min.css">
+    <link rel="stylesheet" href="assets/application.css">
+	<script type="text/javascript" src="assets/bootstrap.js"></script>
+	<script type="text/javascript" src="assets/jasny-bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/application.js"></script>
+
+</head>
+<body>
+    <div id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+        <div class="navbar-nav-header">
+            <span class="nav-headline">Menü</span>
+            <button type="button" class="navbar-toggle nav-close" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">schließen <i class="ds-icon-close"></i></button>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Startseite</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Noten</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub-Kat</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">3. Ebene</a></li>
+                            <li><a href="#">3. Ebene</a></li>
+                            <li><a href="#">3. Ebene</a></li>
+                            <li><a href="#">3. Ebene</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Sub-Kat</a></li>
+                    <li><a href="#">Sub-Kat</a></li>
+                    <li><a href="#">Sub-Kat</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tonträger</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Sub-Kat</a></li>
+                    <li><a href="#">Sub-Kat</a></li>
+                    <li><a href="#">Sub-Kat</a></li>
+                    <li><a href="#">Sub-Kat</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorie</a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Sub-Kat</a></li>
+                    <li><a href="#">Sub-Kat</a></li>
+                    <li><a href="#">Sub-Kat</a></li>
+                    <li><a href="#">Sub-Kat</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+	<div class="container main-container content-wrapper">
+		<div class="page-header dumfart-heder hidden-xs">
+			<img src="assets/images/img_header_2.jpg" class="img-responsive img-rounded" alt=""/>
+		</div>
+		<div class="mobile-header visible-zero-block">
+			<p class="h1">Eigenverlag Dumfart</p>
+		</div>
+		<div class="visible-xs-block header-margin"></div>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+						<i class="ds-icon-bars"></i> Menü
+					</button>
+					<button class="visible-xs-block btn btn-primary btn-basket navbar-btn" type="button">
+						<span class="hidden-xs">Warenkorb</span><span class="glyphicon glyphicon-shopping-cart visible-xs-block"></span> <span class="badge">4</span>
+					</button>
+				</div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Startseite</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Noten<span class="ds-icon-chevron-down"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Sub-Kat</a></li>
+                                <li><a href="#">Sub-Kat</a></li>
+                                <li><a href="#">Sub-Kat</a></li>
+                                <li><a href="#">Sub-Kat</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tonträger<span class="ds-icon-chevron-down"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Sub-Kat</a></li>
+                                <li><a href="#">Sub-Kat</a></li>
+                                <li><a href="#">Sub-Kat</a></li>
+                                <li><a href="#">Sub-Kat</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategorie<span class="ds-icon-chevron-down"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Sub-Kat</a></li>
+                                <li><a href="#">Sub-Kat</a></li>
+                                <li><a href="#">Sub-Kat</a></li>
+                                <li><a href="#">Sub-Kat</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+					<form class="navbar-form navbar-right" role="search">
+						<button class="btn btn-primary btn-basket" type="button">
+							<span class="hidden-xs">Warenkorb</span> <span class="badge">4</span>
+						</button>
+					</form>
+                </div>
+			</div>
+		</nav>
+		<div class="row content">
+			<div class="col-sm-8 col-sm-push-4 col-md-9 col-md-push-3">
+				<div class="container-fluid">
+					<ol class="breadcrumb hidden-xs">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Library</a></li>
+						<li class="active">Data</li>
+					</ol>
+					<a href="#" class="visible-xs-block">
+						<button class="btn btn-default btn-long btn-left"><i class="ds-icon-chevron-left"></i> Library</button>
+					</a>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<h1>Überschrift 1</h1>
+						<p>
+							abaculuss persuadere, <a href="#">anquam altert</a> gabalium. vitas sunt gabaliums de brevis ignigena.
+							torus potuss, tanquam alter compater. sunt caesiumes visum rusticus, flavum bullaes.
+							absolutios nocere in azureus palatium! habitio de camerarius impositio, transferre lamia!
+							est rusticus lapsus, cesaris. cum canis unda, omnes onuses acquirere placidus, salvus messores.
+						</p>
+						<h2>Überschrift 2</h2>
+						<p>
+							abaculuss persuadere, tanquam alter gabalium. vitas sunt gabaliums de brevis ignigena.
+							torus potuss, tanquam alter compater. sunt caesiumes visum rusticus, flavum bullaes.
+							absolutios nocere in azureus palatium! habitio de camerarius impositio, transferre lamia!
+							est rusticus lapsus, cesaris. cum canis unda, omnes onuses acquirere placidus, salvus messores.
+						</p>
+						<h3>Überschrift 3</h3>
+						<p>
+							abaculuss persuadere, tanquam alter gabalium. vitas sunt gabaliums de brevis ignigena.
+							torus potuss, tanquam alter compater. sunt caesiumes visum rusticus, flavum bullaes.
+							absolutios nocere in azureus palatium! habitio de camerarius impositio, transferre lamia!
+							est rusticus lapsus, cesaris. cum canis unda, omnes onuses acquirere placidus, salvus messores.
+						</p>
+						<h4>Überschrift 4</h4>
+						<p>
+							abaculuss persuadere, tanquam alter gabalium. vitas sunt gabaliums de brevis ignigena.
+							torus potuss, tanquam alter compater. sunt caesiumes visum rusticus, flavum bullaes.
+							absolutios nocere in azureus palatium! habitio de camerarius impositio, transferre lamia!
+							est rusticus lapsus, cesaris. cum canis unda, omnes onuses acquirere placidus, salvus messores.
+						</p>
+						<h5>Überschrift 5</h5>
+						<p>
+							abaculuss persuadere, tanquam alter gabalium. vitas sunt gabaliums de brevis ignigena.
+							torus potuss, tanquam alter compater. sunt caesiumes visum rusticus, flavum bullaes.
+							absolutios nocere in azureus palatium! habitio de camerarius impositio, transferre lamia!
+							est rusticus lapsus, cesaris. cum canis unda, omnes onuses acquirere placidus, salvus messores.
+						</p>
+						<h6>Überschrift 6</h6>
+						<p>
+							abaculuss persuadere, tanquam alter gabalium. vitas sunt gabaliums de brevis ignigena.
+							torus potuss, tanquam alter compater. sunt caesiumes visum rusticus, flavum bullaes.
+							absolutios nocere in azureus palatium! habitio de camerarius impositio, transferre lamia!
+							est rusticus lapsus, cesaris. cum canis unda, omnes onuses acquirere placidus, salvus messores.
+						</p>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<nav>
+						<ul class="pagination pagination-sm">
+							<li><a href="#">&laquo;</a></li>
+							<li><a href="#">1</a></li>
+							<li class="active"><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
+					</nav>
+					<div class="row list-boxes-group equal-heights">
+						<div class="col-xs-6 col-md-4 col-lg-3 equal-item">
+							<div class="thumbnail">
+								<a href="#">
+									<img src="assets/images/product_images/komprimiert/BD-001.jpg" class="equal-item-img" alt="...">
+								</a>
+								<div class="caption">
+									<div class="thumbnail-description">
+										<h4>Notenheft 1</h4>
+										<p>Noten für Weisenbläser</p>
+									</div>
+
+								</div>
+								<div class="footer">
+									<div class="row">
+										<div class="col-zero-6"><p class="text-left"><a href="#" class="btn btn-primary" role="button">mehr</a></p></div>
+										<div class="col-zero-6"><p class="lead text-right">15,00€</p></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6 col-md-4 col-lg-3 equal-item">
+							<div class="thumbnail">
+								<a href="#">
+									<img src="assets/images/product_images/komprimiert/kuw.jpg" class="equal-item-img" alt="...">
+								</a>
+								<div class="caption">
+									<div class="thumbnail-description">
+										<h4>CD - Das ist der Titel der  schönen CD</h4>
+										<p>Die neue CD vom Mühlviertler Quintett ist da!!! Jetzt exklusiv hier erhältlich!!</p>
+									</div>
+								</div>
+								<div class="footer">
+									<div class="row">
+										<div class="col-zero-6"><p class="text-left"><a href="#" class="btn btn-primary" role="button">mehr</a></p></div>
+										<div class="col-zero-6"><p class="lead text-right">15,00€</p></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6 col-md-4 col-lg-3 equal-item">
+							<div class="thumbnail">
+								<a href="#">
+									<img src="assets/images/product_images/komprimiert/BD-003.jpg" class="equal-item-img" alt="...">
+								</a>
+								<div class="caption">
+									<div class="thumbnail-description">
+										<h4>Notenheft 3</h4>
+										<p>
+											Noten für Harmonika-Duo
+										</p>
+									</div>
+								</div>
+								<div class="footer">
+									<div class="row">
+										<div class="col-zero-6"><p class="text-left"><a href="#" class="btn btn-primary" role="button">mehr</a></p></div>
+										<div class="col-zero-6"><p class="lead text-right">15,00€</p></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6 col-md-4 col-lg-3 equal-item">
+							<div class="thumbnail">
+								<a href="#">
+									<img src="assets/images/product_images/komprimiert/himmel.jpg" class="equal-item-img" alt="...">
+								</a>
+								<div class="caption">
+									<div class="thumbnail-description">
+										<h4>Notenheft 3</h4>
+										<p>
+											Noten für Harmonika-Duo
+										</p>
+									</div>
+								</div>
+								<div class="footer">
+									<div class="row">
+										<div class="col-zero-6"><p class="text-left"><a href="#" class="btn btn-primary" role="button">mehr</a></p></div>
+										<div class="col-zero-6"><p class="lead text-right">15,00€</p></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-zero-8 col-zero-offset-2 col-xs-4 col-xs-offset-0">
+							<img id="imagelightbox-detail" src="assets/images/product_images/Eidenberger%20Notenbüachl%20Mehrstimmige%20geistliche%20Volkslieder%20Griffschrift.jpg" class="img-responsive img-detail-thumb" alt=""/>
+						</div>
+						<div class="col-zero-12 col-xs-7 col-xs-offset-1">
+							<h1>Eidenberger Notenbücht</h1>
+							<p>
+								pol, caesium! cum onus persuadere, omnes verpaes aperto placidus, castus calcariaes. pol. est brevis demolitione, cesaris. ecce, planeta! cur rector cadunt? placidus, germanus musas patienter aperto de altus, bi-color itineris tramitem.
+								nunquam demitto elogium. capio, accola, et solem. bromiums sunt absolutios de germanus zirbus. absolutios sunt glutens de albus poeta. nunquam dignus rumor. cum abactus peregrinatione, omnes cottaes talem fidelis, varius consiliumes.
+							</p>
+							<ol class="">
+								<li>species </li>
+								<li>caesium </li>
+								<li>palatium </li>
+								<li>cobaltum </li>
+								<li>accola </li>
+								<li>ausus </li>
+								<li>orgia </li>
+								<li>brigantium </li>
+								<li>humani generis </li>
+								<li>cubiculum </li>
+								<li>virundum </li>
+								<li>capio </li>
+							</ol>
+
+							<div class="col-zero-3">
+								<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></button>
+							</div>
+							<div class="col-zero-4 col-zero-offset-5">
+								<p class="lead text-right">15,00 €</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-zero-8 col-zero-offset-2 col-xs-4 col-xs-offset-0">
+							<a href=""  data-toggle="modal" data-target="#product-img-modal-2">
+								<img src="assets/images/product_images/weinbergmusi cd1 cover.jpg" class="img-responsive img-detail-thumb" alt=""/>
+							</a>
+							<div class="modal fade" id="product-img-modal-2" tabindex="-1" role="dialog" aria-labelledby="product-img-modal-label" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content img-modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+											<h4 class="modal-title monotype-corsiva" id="myModalLabel">Eidenberger Notenbüchl</h4>
+										</div>
+										<div class="modal-body">
+											<img src="assets/images/product_images/weinbergmusi cd1 cover.jpg" alt=""/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-zero-12 col-xs-7 col-xs-offset-1">
+							<h1>Eidenberger Notenbücht</h1>
+							<p>
+								pol, caesium! cum onus persuadere, omnes verpaes aperto placidus, castus calcariaes. pol. est brevis demolitione, cesaris. ecce, planeta! cur rector cadunt? placidus, germanus musas patienter aperto de altus, bi-color itineris tramitem.
+								nunquam demitto elogium. capio, accola, et solem. bromiums sunt absolutios de germanus zirbus. absolutios sunt glutens de albus poeta. nunquam dignus rumor. cum abactus peregrinatione, omnes cottaes talem fidelis, varius consiliumes.
+							</p>
+							<ol class="">
+								<li>species </li>
+								<li>caesium </li>
+								<li>palatium </li>
+								<li>cobaltum </li>
+								<li>accola </li>
+								<li>ausus </li>
+								<li>orgia </li>
+								<li>brigantium </li>
+								<li>humani generis </li>
+								<li>cubiculum </li>
+								<li>virundum </li>
+								<li>capio </li>
+							</ol>
+
+							<div class="col-zero-3">
+								<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></button>
+							</div>
+							<div class="col-zero-3 col-zero-offset-6">
+								<p class="lead text-right">15,00 €</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row basket-container">
+						<div class="col-zero-12 basket-container-header">
+							<p class="h1"><a href="#">Weinbergmusi CD</a></p>
+						</div>
+						<div class="basket-container-left col-zero-12">
+							<div class="basket-container-content">
+								<div class="col-zero-2 basket-image">
+									<img src="assets/images/product_images/weinbergmusi cd1 cover.jpg" class="img-responsive img-detail-thumb" alt=""/>
+								</div>
+								<div class="col-zero-5 col-zero-offset-1 basket-text">
+									<p>Das ist eine längere Beschreibugn, aber doch uch wieder nicht zu lang</p>
+								</div>
+								<div class="col-zero-3 col-zero-offset-1 basket-container-right">
+									<input type="text" size="2" value="1" class="text-right"/>
+									<p class="lead">15,00 €</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-zero-3 col-zero-offset-9 basket-container-footer">
+							<button type="button" class="btn btn-danger btn-orderinf-delete">löschen</button>
+						</div>
+					</div>
+					<div class="row basket-container">
+						<div class="col-zero-12 basket-container-header">
+							<p class="h1"><a href="#">Weinbergmusi CD</a></p>
+						</div>
+						<div class="basket-container-left col-zero-12">
+							<div class="basket-container-content">
+								<div class="col-zero-2 basket-image">
+									<img src="assets/images/product_images/Eidenberger%20Notenbüachl%20Mehrstimmige%20geistliche%20Volkslieder%20Griffschrift.jpg" class="img-responsive img-detail-thumb" alt=""/>
+								</div>
+								<div class="col-zero-5 col-zero-offset-1 basket-text">
+									<p>Das ist eine längere Beschreibugn, aber doch uch wieder nicht zu lang</p>
+								</div>
+								<div class="col-zero-3 col-zero-offset-1 basket-container-right">
+									<input type="text" size="2" value="1" class="text-right"/>
+									<p class="lead">15,00 €</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-zero-3 col-zero-offset-9 basket-container-footer">
+							<button type="button" class="btn btn-danger btn-orderinf-delete">löschen</button>
+						</div>
+					</div>
+					<div class="row basket-summary">
+						<div class="col-xs-9">
+							<p class="h4">Bestellsumme (inkl. 19% MwSt.):</p>
+						</div>
+						<div class="col-xs-3">
+							<p class="lead">30,00 €</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9">
+				<div class="panel panel-primary hidden-xs">
+					<!-- List group id="bs-example-navbar-collapse-1"-->
+					<div class="list-group">
+						<a href="#" class="list-group-item active">
+							Cras justo odio
+						</a>
+						<a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+						<a href="#" class="list-group-item">Morbi leo risus</a>
+						<a href="#" class="list-group-item">Porta ac consectetur ac</a>
+						<a href="#" class="list-group-item">Vestibulum at eros</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container footer-container">
+		<p class="h1">Das ist der Footer</p>
+		<p>Das ist der Footer <a href="#">und das ist ein Link im Footer</a>
+		</p>
+	</div>
+</body>
+</html>

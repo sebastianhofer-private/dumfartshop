@@ -1,0 +1,17 @@
+.content-wrapper {
+
+	padding: 0;
+
+	@include respond-to(phone) {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.content {
+		padding-left: 8px;
+		padding-right: 8px;
+
+		@include respond-to(phone) {
+			padding: 0;
+		}
+	}
+}

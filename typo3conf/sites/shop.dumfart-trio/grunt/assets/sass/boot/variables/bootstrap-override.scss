@@ -1,0 +1,150 @@
+
+// -- color settings --
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+// bottstrap default
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+// changed
+$brand-primary:         #5f9059 !default;
+$white:                 #fff !default;
+
+$font-size-base:          14px !default;
+$font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2.3)) !default; // ~33px
+$font-size-h2:            floor(($font-size-base * 2.05)) !default; // ~29px
+$font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil(($font-size-base * 0.85)) !default; // ~12px
+
+//** Global color for active items (e.g., navs or dropdowns).
+$component-active-color:    $white !default;
+//** Global background color for active items (e.g., navs or dropdowns).
+$component-active-bg:       $brand-primary !default;
+
+// -- breakpoint settings --
+
+// bootstrap default
+$screen-xs:                  480px !default;
+$screen-sm:                  768px !default;
+$screen-md:                  992px !default;
+$screen-lg:                  1200px !default;
+
+$container-tablet:			100% !default;
+$container-desktop:			$container-tablet !default;
+
+// -- nav-bar --
+
+// navbar general
+$navbar-height:				 40px !default;
+$navbar-default-bg:          $brand-primary !default;
+$navbar-default-color:       $white !default;
+$navbar-default-border:      darken($navbar-default-bg, 6.5%) !default;
+
+// Navbar links
+$navbar-default-link-color:                $navbar-default-color !default;
+$navbar-default-link-hover-color:          $navbar-default-color !default;
+$navbar-default-link-hover-bg:             darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-active-color:         $navbar-default-color !default;
+$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-disabled-color:       #ccc !default;
+$navbar-default-link-disabled-bg:          transparent !default;
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+//** Background for the dropdown menu.
+$dropdown-bg:                    $white !default;
+//** Dropdown menu `border-color`.
+$dropdown-border:                $navbar-default-border !default;
+//** Dropdown menu `border-color` **for IE8**.
+$dropdown-fallback-border:       #ccc !default;
+//** Divider color for between dropdown items.
+$dropdown-divider-bg:            #e5e5e5 !default;
+
+//** Dropdown link text color.
+$dropdown-link-color:            $brand-primary !default;
+//** Hover color for dropdown links.
+$dropdown-link-hover-color:      $white !default;
+//** Hover background for dropdown links.
+$dropdown-link-hover-bg:         $brand-primary !default;
+
+//** Active dropdown menu item text color.
+$dropdown-link-active-color:     $component-active-color !default;
+//** Active dropdown menu item background color.
+$dropdown-link-active-bg:        $component-active-bg !default;
+
+//** Disabled dropdown menu item background color.
+$dropdown-link-disabled-color:   $gray-light !default;
+
+//** Text color for headers within dropdown menus.
+$dropdown-header-color:          $gray-light !default;
+
+//** Deprecated `$dropdown-caret-color` as of v3.1.0
+$dropdown-caret-color:           #000 !default;
+
+//== List group
+//
+//##
+
+//** Background color on `.list-group-item`
+$list-group-bg:                 #fff !default;
+//** `.list-group-item` border color
+$list-group-border:             lighten($brand-primary, 20%) !default;
+//** List group border radius
+//$list-group-border-radius:      $border-radius-base !default;
+
+//** Background color of single list items on hover
+$list-group-hover-bg:           $brand-primary !default;
+//** Text color of active list items
+$list-group-active-color:       $component-active-color !default;
+//** Background color of active list items
+$list-group-active-bg:          $component-active-bg !default;
+//** Border color of active list elements
+$list-group-active-border:      $list-group-active-bg !default;
+//** Text color for content within active list items
+$list-group-active-text-color:  lighten($list-group-active-bg, 40%) !default;
+
+//** Text color of disabled list items
+$list-group-disabled-color:      $gray-light !default;
+//** Background color of disabled list items
+$list-group-disabled-bg:         $gray-lighter !default;
+//** Text color for content within disabled list items
+$list-group-disabled-text-color: $list-group-disabled-color !default;
+
+$list-group-link-color:         $brand-primary !default;
+$list-group-link-hover-color:   $white !default;
+$list-group-link-heading-color: #333 !default;
+
+//== Panel
+//$panel-inner-border:            lighten($brand-primary, 20%) !default;
+
+//== push menu
+
+$push-menu-hover-bg:	darken($brand-primary, 10%);
+$push-menu-hover-bg:	darken($brand-primary, 10%);
+$push-menu-link-padding:	13px;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:           $push-menu-hover-bg !default;
+$navbar-default-toggle-icon-bar-bg:        #888 !default;
+$navbar-default-toggle-border-color:       $white !default;
+
+// grid
+$grid-gutter-width:			20px;

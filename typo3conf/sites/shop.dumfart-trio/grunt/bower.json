@@ -1,0 +1,29 @@
+{
+	"name": "dumfart-dummy",
+	"version": "0.0.1",
+	"authors": [
+		"Sebastian Hofer <sebastian.hofer@s-hofer.de>"
+	],
+	"description": "dumfart dummy",
+	"moduleType": [
+		"node"
+	],
+	"keywords": [
+		"dummy"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"jquery": "~1.11.1",
+		"respond": "~1.4.2"
+	},
+	"devDependencies": {
+		"modernizr": "~2.7.2"
+	}
+}

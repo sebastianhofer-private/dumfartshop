@@ -1,0 +1,11 @@
+.visible-zero-block {
+	display: block;
+
+	/*@include respond-to(phone) {
+		display: none;
+	}*/
+}
+
+.hidden-zero {
+	display: none;
+}

@@ -1,0 +1,34 @@
+.dropdown-menu {
+
+	padding: 0;
+
+  >li {
+    >a {
+      padding: 10px 20px;
+
+		&:after {
+			position: absolute;
+			right: 15px;
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 1;
+			content: "\e002";
+			font-family: "icons";
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			-webkit-font-smoothing: antialiased;
+		}
+    }
+  }
+}
+
+.dropdown {
+	> a {
+		> span {
+			margin-left: 5px;
+		}
+	}
+}

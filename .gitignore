@@ -1,0 +1,11 @@
+#TYPO§ source
+typo3/
+typo3_src/
+index.php
+
+#TYPO3 system folders
+typo3temp/
+fileadmin/
+uploads/
+#IDE
+.idea

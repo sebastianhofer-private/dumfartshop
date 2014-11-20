@@ -1,0 +1,31 @@
+.thumbnail {
+
+	height: 100%;
+
+	> a {
+		height: 150px;
+		display: block;
+		> img {
+			max-height: 150px;
+		}
+	}
+
+	.caption {
+		display: block;
+		.thumbnail-description {
+			display: inline-block;
+			h4 {
+
+			}
+
+			p {
+
+			}
+		}
+	}
+
+	.footer {
+		padding: $thumbnail-caption-padding;
+		color: $thumbnail-caption-color;
+	}
+}

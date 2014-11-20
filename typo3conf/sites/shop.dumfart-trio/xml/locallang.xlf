@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2013-10-31T10:47:43Z" product-name="dva_seminar">
+		<header/>
+		<body>
+			<trans-unit index="pages.backend_layout">
+				<source>Page Layout (this test page only)</source>
+			</trans-unit>
+			<trans-unit index="pages.backend_layout_next_level">
+				<source>Page Layout (subpages of this page)</source>
+			</trans-unit>
+
+			<trans-unit index="tt_content.header_layout.1">
+				<source>Heading H1</source>
+			</trans-unit>
+			<trans-unit index="tt_content.header_layout.2">
+				<source>Heading H2</source>
+			</trans-unit>
+			<trans-unit index="tt_content.header_layout.3">
+				<source>Heading H3</source>
+			</trans-unit>
+			<trans-unit index="tt_content.header_layout.4">
+				<source>Heading H4</source>
+			</trans-unit>
+			<trans-unit index="tt_content.header_layout.5">
+				<source>Heading H5</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

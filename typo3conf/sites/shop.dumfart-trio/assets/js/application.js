@@ -1,0 +1,1 @@
+function equalHeights(a,b,c){var d=0;return $(a).find(b).height("auto"),$(a).find(b).each(function(){var a=$(this);a.height()>d&&(d=a.height())}),c>0&&(d-=c),$(a).find(b).height(d),!1}$(document).ready(function(a){equalHeights(".equal-heights",".caption",0),a(window).resize(function(){equalHeights(".equal-heights",".caption",0)})})(jQuery);

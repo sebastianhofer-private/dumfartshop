@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>database</type>
+        <description>Language labels for database tables/fields</description>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <!-- Back-end: Field labels etc. -->
+            <label index="pages.backend_layout">Page Layout (this page only)</label>
+            <label index="pages.backend_layout_next_level">Page Layout (subpages of this page)</label>
+
+            <label index="tt_content.header_layout.1">Heading H1</label>
+            <label index="tt_content.header_layout.2">Heading H2</label>
+            <label index="tt_content.header_layout.3">Heading H3</label>
+            <label index="tt_content.header_layout.4">Heading H4</label>
+            <label index="tt_content.header_layout.5">Heading H5</label>
+        </languageKey>
+        <languageKey index="de" type="array">
+            <!-- Back-end: Field labels etc. -->
+            <label index="pages.backend_layout">Seitenlayout (für diese Seite)</label>
+            <label index="pages.backend_layout_next_level">Seitenlayout (für Unterseiten)</label>
+
+            <label index="tt_content.header_layout.1">Überschrift H1</label>
+            <label index="tt_content.header_layout.2">Überschrift H2</label>
+            <label index="tt_content.header_layout.3">Überschrift H3</label>
+            <label index="tt_content.header_layout.4">Überschrift H4</label>
+            <label index="tt_content.header_layout.5">Überschrift H5</label>
+        </languageKey>
+    </data>
+</T3locallang>
