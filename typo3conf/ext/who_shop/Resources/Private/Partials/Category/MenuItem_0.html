@@ -1,6 +1,5 @@
 {namespace who=WHO\WhoShop\ViewHelpers}
 <f:for each="{categories}" as="category">
-	test
 	<li {f:if(condition: '{category.children}', then: 'class="dropdown"')}>
 		<f:if condition="{category.children}">
 			<f:then>
