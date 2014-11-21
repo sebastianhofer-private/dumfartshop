@@ -1,4 +1,4 @@
-#TYPO§ source
+#TYPO3 source
 typo3/
 typo3_src/
 index.php
@@ -12,5 +12,4 @@ uploads/
 .idea
 
 #Database GUI
-
 *adminer.php
