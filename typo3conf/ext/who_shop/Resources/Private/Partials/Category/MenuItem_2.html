@@ -1,0 +1,10 @@
+<f:for each="{categories}" as="category">
+	<f:if condition="{category.uid} == {givenCat}">
+		<f:then>
+			<a href="{f:uri.action(action: 'menu', controller: 'Category', arguments: '{category: category}', pageUid: '{settings.listPageUid}')}" class="list-group-item active">{category.title}</a>
+		</f:then>
+		<f:else>
+			<a href="{f:uri.action(action: 'menu', controller: 'Category', arguments: '{category: category}', pageUid: '{settings.listPageUid}')}" class="list-group-item">{category.title}</a>
+		</f:else>
+	</f:if>
+</f:for>

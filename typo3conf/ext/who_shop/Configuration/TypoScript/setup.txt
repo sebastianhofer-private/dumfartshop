@@ -1,0 +1,103 @@
+
+plugin.tx_whoshop {
+	view {
+		templateRootPath = {$plugin.tx_whoshop.view.templateRootPath}
+		partialRootPath = {$plugin.tx_whoshop.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_whoshop.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_whoshop.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+
+	settings {
+		storagePid = {$plugin.tx_whoshop.settings.storagePid}
+		rootParent = {$plugin.tx_whoshop.settings.rootParent}
+		maxMenuDepth = {$plugin.tx_whoshop.settings.maxMenuDepth}
+		menuType = {$plugin.tx_whoshop.settings.menuType}
+		listPageUid = {$plugin.tx_whoshop.settings.listPageUid}
+	}
+}
+
+plugin.tx_whoshop._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-who-shop table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-who-shop table th {
+		font-weight:bold;
+	}
+
+	.tx-who-shop table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)
+
+config.tx_extbase{
+	persistence {
+		classes {
+			WHO\WhoShop\Domain\Model\Product {
+				subclasses {
+					0 = WHO\WhoShop\Domain\Model\ProductRecordings
+					1 = WHO\WhoShop\Domain\Model\ProductNotes
+				}
+			}
+
+			WHO\WhoShop\Domain\Model\ProductRecordings {
+				mapping {
+					recorType = 0
+					tableName = tx_whoshop_domain_model_product
+				}
+			}
+
+			WHO\WhoShop\Domain\Model\ProductNotes {
+				mapping {
+					recorType = 1
+					tableName = tx_whoshop_domain_model_product
+				}
+			}
+
+			\TYPO3\CMS\Extbase\Domain\Model\Category {
+				0 = WHO\Shop\Domain\Model\Category
+			}
+
+			WHO\WhoShop\Domain\Model\Category {
+				mapping {
+					tableName = sys_category
+					columns {
+						parent.mapOnProperty = parent
+					}
+				}
+			}
+		}
+
+		objects {
+			\TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository {
+				className = WHO\whoshop\Domain\Repository\CategoryRepository
+			}
+		}
+	}
+}

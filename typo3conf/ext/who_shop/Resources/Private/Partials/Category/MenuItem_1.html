@@ -1,0 +1,11 @@
+<f:if condition="{catGiven}">
+	<f:if condition="{categories}">
+		<div class="panel panel-primary hidden-xs">
+			<div class="list-group">
+				<f:for each="{categories}" as="category">
+					<a href="{f:uri.action(action: 'menu', controller: 'Category', arguments: '{category: category}', pageUid: '{settings.listPageUid}')}" class="list-group-item">{category.title}</a>
+				</f:for>
+			</div>
+		</div>
+	</f:if>
+</f:if>

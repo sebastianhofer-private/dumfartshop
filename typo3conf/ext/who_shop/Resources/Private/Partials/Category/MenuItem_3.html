@@ -1,0 +1,7 @@
+<f:if condition="{catGiven}">
+	<f:for each="{unsortedCategories}" as="category">
+		<f:if condition="{category.uid} == {givenCat}">
+			<f:render partial="Category/Breadcrumb" arguments="{cat: category.parent}"/><li class="active">{category.title}</li>
+		</f:if>
+	</f:for>
+</f:if>

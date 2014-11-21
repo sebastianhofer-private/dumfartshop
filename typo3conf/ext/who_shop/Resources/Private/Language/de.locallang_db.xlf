@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-24T20:29:22Z" product-name="who_shop">
+		<header/>
+		<body>
+			<trans-unit id="tx_whoshop_domain_model_product">
+				<source>Product</source>
+				<target>Produkt</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_track">
+				<source>Track</source>
+				<target>Titel</target>
+			</trans-unit>
+
+			<trans-unit id="tx_whoshop_domain_model_product.div.categories">
+				<source>Categories</source>
+				<target>Kategorien</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.div.tracks">
+				<source>Tracks</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.div.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+
+			<trans-unit id="tx_whoshop_domain_model_product.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.sub_title">
+				<source>Sub title</source>
+				<target>Untertitel</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.price">
+				<source>Price (in €)</source>
+				<target>Preis (in €)</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.categories">
+				<source>categories</source>
+				<target>Kategorien</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.type">
+				<source>product type</source>
+				<target>Produkttyp</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.publishing_number">
+				<source>publishing number</source>
+				<target>Verlagsnummer</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.image">
+				<source>Image</source>
+				<target>Bild</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.tracks">
+				<source>Tracks</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.additional_information">
+				<source>additional information</source>
+				<target>Zusatzinformationen</target>
+			</trans-unit>
+
+			
+			
+			<trans-unit id="tx_whoshop_domain_model_track.div.audio">
+				<source>Audio</source>
+				<target>Audio</target>
+			</trans-unit>
+
+			<trans-unit id="tx_whoshop_domain_model_track.track_number">
+				<source>Track number</source>
+				<target>Titelnummer</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_track.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_track.authority">
+				<source>composer / arranger etc.</source>
+				<target>Komponist / Arrangeur etc.</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_track.has_example">
+				<source>add audio</source>
+				<target>Audiodatei hinzufügen</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_track.example">
+				<source>audio</source>
+				<target>Audiodatei</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

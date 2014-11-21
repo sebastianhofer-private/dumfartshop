@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-09-24T20:29:22Z" product-name="who_shop">
+		<header/>
+		<body>
+			<trans-unit id="tx_whoshop_domain_model_product">
+				<source>Product</source>
+				<target>Produkt</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.title">
+				<source>Title</source>
+				<target>Titel</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.price">
+				<source>Price</source>
+				<target>Preis</target>
+			</trans-unit>
+			<trans-unit id="tx_whoshop_domain_model_product.categories">
+				<source>categories</source>
+				<target>Kategorien</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
