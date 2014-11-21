@@ -1,0 +1,20 @@
+{namespace who=WHO\WhoCatMenu\ViewHelpers}
+<f:for each="{categories}" as="category">
+	<li {f:if(condition: '{category.depth} == 1', then: 'class="dropdown"')}>
+		<f:if condition="{category.depth} == 1">
+			<f:then>
+				<who:link uri="#" class="dropdown-toggle" data-toggle="dropdown">{category.title}<span class="ds-icon-chevron-down"></span></who:link>
+			</f:then>
+			<f:else>
+				<a href="{f:uri.action(action: 'menu', arguments: '{category: category}', pageUid: '{settings.listPageUid}')}">{category.title}</a>
+			</f:else>
+		</f:if>
+		<f:if condition="{category.children}">
+			<f:if condition="{category.depth} < {settings.maxMenuDepth}">
+				<ul class="dropdown-menu" role="menu">
+					<f:render partial="MenuItem_0" arguments="{categories: category.children}"/>
+				</ul>
+			</f:if>
+		</f:if>
+	</li>
+</f:for>

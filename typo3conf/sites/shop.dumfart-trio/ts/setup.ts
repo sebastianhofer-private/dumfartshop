@@ -2,5 +2,9 @@
 <INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/sites/shop.dumfart-trio/ts/setup_lib.content.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/sites/shop.dumfart-trio/ts/setup_lib.headerData.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/sites/shop.dumfart-trio/ts/setup_lib.nav.main.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/sites/shop.dumfart-trio/ts/setup_lib.nav.secondary.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/sites/shop.dumfart-trio/ts/setup_lib.nav.breadcrumb.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/sites/shop.dumfart-trio/ts/setup_lib.header.ts">
+<INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/sites/shop.dumfart-trio/ts/setup_lib.footer.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/sites/shop.dumfart-trio/ts/setup_lib.template.main.ts">
 <INCLUDE_TYPOSCRIPT: source="FILE: typo3conf/sites/shop.dumfart-trio/ts/setup_page.ts">

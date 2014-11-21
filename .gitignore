@@ -7,5 +7,10 @@ index.php
 typo3temp/
 fileadmin/
 uploads/
+
 #IDE
 .idea
+
+#Database GUI
+
+*adminer.php

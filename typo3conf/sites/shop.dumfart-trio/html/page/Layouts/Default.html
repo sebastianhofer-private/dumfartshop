@@ -1,0 +1,39 @@
+
+<div id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+	<f:cObject typoscriptObjectPath="lib.nav.mobile" />
+</div>
+
+<div class="container main-container content-wrapper">
+	<f:cObject typoscriptObjectPath="lib.header" />
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
+					<i class="ds-icon-bars"></i> Menü
+				</button>
+				<button class="visible-xs-block btn btn-primary btn-basket navbar-btn" type="button">
+					<span class="hidden-xs">Warenkorb</span><span class="glyphicon glyphicon-shopping-cart visible-xs-block"></span> <span class="badge">4</span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<f:cObject typoscriptObjectPath="lib.nav.main" />
+			</div>
+		</div>
+	</nav>
+	<div class="row content">
+		<f:if condition="{backendLayout}">
+			<f:then>
+				<f:render section="backendLayout_{backendLayout}" />
+			</f:then>
+			<f:else>
+				<f:render section="backendLayout_default" />
+			</f:else>
+		</f:if>
+	</div>
+</div>
+<div class="container footer-container">
+	<f:cObject typoscriptObjectPath="lib.footer" />
+</div>
+
+
+

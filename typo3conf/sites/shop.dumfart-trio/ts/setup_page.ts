@@ -35,12 +35,12 @@ page {
 
 	includeJSlibs {
 		jQuery = {$path.res}assets/js/jquery.min.js
-		modernizr = {$path.res}assets/js/modernizr.min.js
+		#modernizr = {$path.res}assets/js/modernizr.min.js
+		bootstrap = {$path.res}assets/js/bootstrap.js
 		jasny = {$path.res}assets/js/jasny-bootstrap.min.js
 	}
 
 	includeJS {
-		10 = {$path.res}assets/js/bootstrap.js
 		10 = {$path.res}assets/js/application.js
 	}
 }

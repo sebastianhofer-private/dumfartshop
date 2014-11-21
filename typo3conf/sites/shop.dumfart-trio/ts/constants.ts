@@ -8,7 +8,7 @@ setting {
 	protocol = http://
 	admPanel = 0
 	no_cache = 0
-	concatenateJs = 1
+	concatenateJs = 0
 	concatenateCss = 1
 	compressJs = 1
 	compressCss = 1
@@ -37,6 +37,19 @@ uid {
 		root = 1
 	}
 }
+
+/**
+ * tx_who_cat_menu
+ */
+
+plugin.tx_whoshop.settings {
+	storagePid = 1
+	rootParent = 1
+	#maxMenuDepth = 0
+	menuType = 0 #default menu type
+	listPageUid = 5
+}
+
 
 /**
  * Language Settings
