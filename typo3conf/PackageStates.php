@@ -493,15 +493,6 @@ return array (
       array (
       ),
     ),
-    'who_cat_menu' => 
-    array (
-      'state' => 'inactive',
-      'packagePath' => 'typo3conf/ext/who_cat_menu/',
-      'classesPath' => 'Classes/',
-      'suggestions' => 
-      array (
-      ),
-    ),
     'version' => 
     array (
       'manifestPath' => '',
