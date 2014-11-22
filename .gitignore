@@ -13,3 +13,6 @@ uploads/
 
 #Database GUI
 *adminer.php
+
+#grunt
+typo3conf/sites/shop.dumfart-trio/grunt/.sass-cache/
