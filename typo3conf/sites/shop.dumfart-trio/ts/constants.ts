@@ -43,7 +43,7 @@ uid {
  */
 
 plugin.tx_whoshop.settings {
-	storagePid = 1
+	storagePid = 7
 	rootParent = 1
 	#maxMenuDepth = 0
 	menuType = 0 #default menu type
