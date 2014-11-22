@@ -1,6 +1,5 @@
 <div class="row list-boxes-group equal-heights">
 	<f:for each="{products}" as="product">
-		<f:debug>{product.additionalInformation}</f:debug>
 		<div class="col-xs-6 col-md-4 col-lg-3 equal-item">
 			<div class="thumbnail">
 				<f:link.action action="show" controller="Product" extensionName="WhoShop" pluginName="Product" pageUid="5" addQueryString="1" arguments="{product: product, category: category}">
