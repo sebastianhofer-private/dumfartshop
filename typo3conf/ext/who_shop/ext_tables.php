@@ -56,8 +56,8 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_product'] = array(
 		'type' => 'type',
 		'typeicon_column' => 'type',
 		'typeicons' => array(
-			'0' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/music200.png',
-			'1' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/book11.png',
+			'0' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/book11.png',
+			'1' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/music200.png',
 		),
 
 		'versioningWS' => 2,
