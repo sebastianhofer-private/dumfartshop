@@ -10,7 +10,7 @@ CREATE TABLE tx_whoshop_domain_model_product (
 	sub_title varchar(255) DEFAULT '' NOT NULL,
 	additional_information text,
 	publishing_number varchar(255) DEFAULT '' NOT NULL,
-	price int(11) DEFAULT '0' NOT NULL,
+	price decimal(10,2) DEFAULT '0.00' NOT NULL,
 	categories int(11) unsigned DEFAULT '0' NOT NULL,
 	image int(11) unsigned NOT NULL DEFAULT '0',
 	tracks int(11) unsigned NOT NULL DEFAULT '0',
