@@ -1,0 +1,15 @@
+<f:for each="{categories}" as="category">
+	<li {f:if(condition: '{category.children}', then: 'class="dropdown"')}>
+		<f:if condition="{category.children}">
+			<f:then>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{category.title}</a>
+				<ul class="dropdown-menu" role="menu">
+					<f:render partial="Category/MenuItem_5" arguments="{categories: category.children}"/>
+				</ul>
+			</f:then>
+			<f:else>
+				<a href="{f:uri.action(action: 'menu', controller: 'Category', arguments: '{category: category}', pageUid: '{settings.listPageUid}')}">{category.title}</a>
+			</f:else>
+		</f:if>
+	</li>
+</f:for>

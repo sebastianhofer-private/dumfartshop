@@ -9,7 +9,7 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_product'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type, title, description, price, categories',
 	),
 	'types' => array(
-		'0' => array('showitem' => ';;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, title, price, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.image, image, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.categories, categories, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.tracks, tracks, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'0' => array('showitem' => ';;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, title, price, additional_information, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.image, image, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.categories, categories, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.tracks, tracks, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 		'1' => array('showitem' => ';;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, title, sub_title, publishing_number, additional_information, price, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.image, image, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.categories, categories, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.tracks, tracks, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
@@ -188,10 +188,22 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_product'] = array(
 		'image' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.image',
-			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-				'image',
-				array('maxitems' => 1),
-				$GLOBALS['TYPO_CONF_VARS']['GFX']['imagefile_ext']
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image',
+				array(
+					'appearance' => array(
+						'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
+					),
+					// custom configuration for displaying fields in the overlay/reference table
+					// to use the imageoverlayPalette instead of the basicoverlayPalette
+					'foreign_types' => array(
+						'0' => array(
+							'showitem' => '
+								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+								--palette--;;filePalette'
+						),
+					),
+				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+				)
 			)
 		),
 		'tracks' => array(

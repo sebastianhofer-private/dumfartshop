@@ -63,7 +63,11 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $tracks = 0;
 
-
+	/**
+	 * additional information
+	 * @var string
+	 */
+	protected $additional_information = '';
 
 	/**
 	 * __construct
@@ -272,4 +276,28 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
         return $this;
     }
+
+	/**
+	 * Gets the additional information.
+	 *
+	 * @return string
+	 */
+	public function getAdditionalInformation()
+	{
+		return $this->additional_information;
+	}
+
+	/**
+	 * Sets the additional information.
+	 *
+	 * @param string $additional_information the additional  information
+	 *
+	 * @return self
+	 */
+	protected function setAdditionalInformation($additional_information)
+	{
+		$this->additional_information = $additional_information;
+
+		return $this;
+	}
 }

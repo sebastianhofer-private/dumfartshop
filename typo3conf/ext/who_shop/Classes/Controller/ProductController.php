@@ -11,6 +11,7 @@ namespace WHO\WhoShop\Controller;
  *  All rights reserved
  *  
  ***************************************************************/
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * ProductController
@@ -26,12 +27,28 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	protected $productRepository = NULL;
 
 	/**
+	 * categoryRepository
+	 *
+	 * @var \WHO\WhoShop\Domain\Repository\CategoryRepository
+	 * @inject
+	 */
+	protected $categoryRepository = NULL;
+
+	/**
 	 * action list
 	 *
 	 * @return void
 	 */
 	public function listAction() {
-		$products = $this->productRepository->findAll();
+
+		$category = $this->categoryRepository->findByUid($_GET['tx_whoshop_category']['category']);
+
+		if($category == NULL){
+			$category = $this->categoryRepository->findByUid($this->settings['defaultCategory']);
+		}
+
+		$products = $this->productRepository->findByCat($category);
+
 		$this->view->assign('products', $products);
 	}
 

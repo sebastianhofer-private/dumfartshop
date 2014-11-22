@@ -32,6 +32,11 @@ namespace WHO\WhoShop\Domain\Repository;
  */
 class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository {
 
+	/**
+	 * @param $pid
+	 * @param $rootParent
+	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+	 */
 	public function findAllFirstLevelByPid($pid,$rootParent) {
 		$query = $this->createQuery();
 
@@ -45,6 +50,10 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRe
 		return $query->execute();
 	}
 
+	/**
+	 * @param $parentUid
+	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+	 */
 	public function findAllByParent($parentUid) {
 		$query = $this->createQuery();
 		$query->matching(

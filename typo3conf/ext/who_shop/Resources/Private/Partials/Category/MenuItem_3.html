@@ -4,4 +4,5 @@
 			<f:render partial="Category/Breadcrumb" arguments="{cat: category.parent}"/><li class="active">{category.title}</li>
 		</f:if>
 	</f:for>
+	<f:render partial="Category/BreadcrumbSmall" arguments="{cat: category.parent}"/>
 </f:if>

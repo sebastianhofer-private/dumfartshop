@@ -1,41 +1,48 @@
-
-<f:layout name="Default" />
-
-This Template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
-<f:section name="main">
-<h1>Listing for Product</h1>
-
-<f:flashMessages renderMode="div" />
-
-<table  class="tx_whoshop" >
-	<tr>
-		<th><f:translate key="tx_whoshop_domain_model_product.title" /></th>
-		<th><f:translate key="tx_whoshop_domain_model_product.description" /></th>
-		<th><f:translate key="tx_whoshop_domain_model_product.price" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
-
+<f:debug>{products}</f:debug>
+<div class="row list-boxes-group equal-heights">
 	<f:for each="{products}" as="product">
-		<tr>
-			<td><f:link.action action="show" arguments="{product : product}"> {product.title}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{product : product}"> {product.description}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{product : product}"> {product.price}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{product : product}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{product : product}">Delete</f:link.action></td>
-		</tr>
+		<div class="col-xs-6 col-md-4 col-lg-3 equal-item">
+			<div class="thumbnail">
+				<f:link.action action="show" controller="Product" extensionName="WhoShop" pluginName="Product" pageUid="5" addQueryString="1" arguments="{product: product}">
+					<img src="{f:uri.image(src:'{product.image.uid}' treatIdAsReference:'1')}">
+				</f:link.action>
+				<div class="caption">
+					<div class="thumbnail-description">
+						<h4>{product.title}</h4>
+						<p>{product.additional_information}</p>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="row">
+						<div class="col-zero-6"><p class="text-left"><a href="{f:uri.action(action:'show', controller:'Product', extensionName:'WhoShop', pluginName:'Product', pageUid:'5', addQueryString:'1', arguments:'{product: product}')}" class="btn btn-primary" role="button">mehr</a></p></div>
+						<div class="col-zero-6"><p class="lead text-right">{product.price}</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</f:for>
-</table>
+</div>
 
-<f:link.action action="new">New Product</f:link.action>
-</f:section>
+<f:comment>
+	<div class="row list-boxes-group equal-heights">
+		<div class="col-xs-6 col-md-4 col-lg-3 equal-item">
+			<div class="thumbnail">
+
+					<img src="assets/images/product_images/komprimiert/BD-001.jpg" class="equal-item-img" alt="...">
+				</a>
+				<div class="caption">
+					<div class="thumbnail-description">
+						<h4>Notenheft 1</h4>
+						<p>Noten für Weisenbläser</p>
+					</div>
+
+				</div>
+				<div class="footer">
+					<div class="row">
+						<div class="col-zero-6"><p class="text-left"><a href="#" class="btn btn-primary" role="button">mehr</a></p></div>
+						<div class="col-zero-6"><p class="lead text-right">15,00€</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+</f:comment>
