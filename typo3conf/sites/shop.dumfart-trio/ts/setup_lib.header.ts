@@ -11,7 +11,7 @@ lib.header {
 	20 = TEXT
 	20 {
 		value = Eigenverlag Dumfart
-		wrap = <div class="mobile-header visible-zero-block"><p class="h1">|</p></div>
+		wrap = <div class="mobile-header visible-zero-block visible-xs-block"><p class="h1">|</p></div>
 	}
 
 	wrap = |<div class="visible-xs-block header-margin"></div>
