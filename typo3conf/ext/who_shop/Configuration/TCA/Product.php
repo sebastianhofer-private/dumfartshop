@@ -103,8 +103,8 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_product'] = array(
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
-					array('Tonträger', 0),
 					array('Noten', 1),
+					array('Tonträger', 0),
 				),
 				'size' => 1,
 				'maxitems' => 1,
