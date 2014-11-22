@@ -68,7 +68,7 @@ class CategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 			$givenCat = $category->getUid();
 		}
 
-		$firstLevelCategories = $this->categoryRepository->findAllFirstLevelByPid($this->settings['storagePid'],$this->settings['rootParent']);
+		$firstLevelCategories = $this->categoryRepository->findAllFirstLevelByRootParent($this->settings['rootParent']);
 
 		$this->addChildren($firstLevelCategories,$this->settings['maxMenuDepth'],0);
 

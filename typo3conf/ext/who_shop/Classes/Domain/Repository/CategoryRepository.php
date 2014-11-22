@@ -37,12 +37,11 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRe
 	 * @param $rootParent
 	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
 	 */
-	public function findAllFirstLevelByPid($pid,$rootParent) {
+	public function findAllFirstLevelByRootParent($rootParent) {
 		$query = $this->createQuery();
 
 		$query->matching(
 			$query->logicalAnd(
-				$query->equals('pid',$pid),
 				$query->equals('parent',$rootParent)
 			)
 		);
