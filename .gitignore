@@ -1,6 +1,8 @@
 #TYPO3 source
 typo3/
+typo3
 typo3_src/
+typo3_src*
 index.php
 
 #TYPO3 system folders
