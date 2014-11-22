@@ -59,6 +59,7 @@ CREATE TABLE tx_whoshop_domain_model_track (
 	has_example int(11) NOT NULL DEFAULT '0',
 	example int(11) NOT NULL DEFAULT '0',
 	content_element int(11) unsigned NOT NULL DEFAULT '0',
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

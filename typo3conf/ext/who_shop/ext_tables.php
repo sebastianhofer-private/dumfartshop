@@ -92,6 +92,7 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_track'] = array(
 		'cruser_id' => 'cruser_id',
 		'dividers2tabs' => TRUE,
 		'requestUpdate' => 'has_example',
+		'sortby' => 'sorting',
 
 		'versioningWS' => 2,
 		'versioning_followPages' => TRUE,

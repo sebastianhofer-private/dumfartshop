@@ -9,7 +9,7 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_track'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, track_number, title, authority, has_example, example',
 	),
 	'types' => array(
-		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, track_number, title, authority, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_track.div.audio, has_example, example, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'0' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, authority, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_track.div.audio, has_example, example, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -102,7 +102,7 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_track'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 1,
-				'eval' => 'required,trim'
+				'eval' => 'trim'
 			),
 		),
 		'title' => array(

@@ -28,13 +28,13 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * sub title
 	 * @var string
 	 */
-	protected $sub_title = '';
+	protected $subTitle = '';
 
 	/**
 	 * publishing number
 	 * @var string
 	 */
-	protected $publishing_number = '';
+	protected $publishingNumber = '';
 
 	/**
 	 * price
@@ -46,7 +46,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * sys_categories
 	 *
-	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\WHO\WhoShop\Domain\Model\Category>
 	 */
 	protected $categories = NULL;
 
@@ -59,9 +59,9 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * tracks
-	 * @var integer
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\WHO\WhoShop\Domain\Model\Track>
 	 */
-	protected $tracks = 0;
+	protected $tracks = Null;
 
 	/**
 	 * additional information
@@ -109,6 +109,19 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->categories->detach($categoriesToRemove);
 	}
 
+	/**
+	 * @param $tracks
+	 */
+	public function addTracks($tracks) {
+		$this->categories->attach($tracks);
+	}
+
+	/**
+	 * @param $tracksToRemove
+	 */
+	public function removeTracks($tracksToRemove) {
+		$this->categories->detach($tracksToRemove);
+	}
 
     /**
      * Gets the title.
@@ -141,19 +154,19 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
      */
     public function getSubTitle()
     {
-        return $this->sub_title;
+        return $this->subTitle;
     }
     
     /**
      * Sets the sub title.
      *
-     * @param string $sub_title the sub  title 
+     * @param string $subTitle the sub  title
      *
      * @return self
      */
-    protected function setSubTitle($sub_title)
+    protected function setSubTitle($subTitle)
     {
-        $this->sub_title = $sub_title;
+        $this->subTitle = $subTitle;
 
         return $this;
     }
@@ -165,19 +178,19 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
      */
     public function getPublishingNumber()
     {
-        return $this->publishing_number;
+        return $this->publishingNumber;
     }
     
     /**
      * Sets the publishing number.
      *
-     * @param string $publishing_number the publishing  number 
+     * @param string $publishingNumber the publishing  number
      *
      * @return self
      */
-    protected function setPublishingNumber($publishing_number)
+    protected function setPublishingNumber($publishingNumber)
     {
-        $this->publishing_number = $publishing_number;
+        $this->publishingNumber = $publishingNumber;
 
         return $this;
     }
@@ -253,29 +266,23 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
         return $this;
     }
 
-    /**
-     * Gets the tracks.
-     *
-     * @return integer
-     */
-    public function getTracks()
-    {
-        return $this->tracks;
-    }
-    
-    /**
-     * Sets the tracks.
-     *
-     * @param integer $tracks the tracks 
-     *
-     * @return self
-     */
-    protected function setTracks($tracks)
-    {
-        $this->tracks = $tracks;
+	/**
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	public function getTracks()
+	{
+		return $this->tracks;
+	}
 
-        return $this;
-    }
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $tracks
+	 */
+	public function setTracks($tracks)
+	{
+		$this->tracks = $tracks;
+	}
+
+
 
 	/**
 	 * Gets the additional information.

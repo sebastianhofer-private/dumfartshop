@@ -1,22 +1,73 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-zero-8 col-zero-offset-2 col-xs-4 col-xs-offset-0">
+			<img src="{f:uri.image(src:'{product.image.uid}' treatIdAsReference:'1')}"  class="img-responsive img-detail-thumb">
+		</div>
+		<div class="col-zero-12 col-xs-7 col-xs-offset-1">
+			<h1>{product.title}
+				<f:if condition="{product.publishingNumber}">
+					<span class="publishing-number">({product.publishingNumber})</span>
+				</f:if>
+			</h1>
+			<f:if condition="{product.additionalInformation}">
+				<p>{product.additionalInformation}</p>
+			</f:if>
+			<f:render partial="Product/Tracks" arguments="{tracks: product.tracks}"/>
+		</div>
+	</div>
+</div>
 
-<f:layout name="Default" />
+<f:comment>
 
-This Template is responsible for displaying a single view for a domain object
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-zero-8 col-zero-offset-2 col-xs-4 col-xs-offset-0">
+			<a href=""  data-toggle="modal" data-target="#product-img-modal-2">
+				<img src="assets/images/product_images/weinbergmusi cd1 cover.jpg" class="img-responsive img-detail-thumb" alt=""/>
+			</a>
+			<div class="modal fade" id="product-img-modal-2" tabindex="-1" role="dialog" aria-labelledby="product-img-modal-label" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content img-modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title monotype-corsiva" id="myModalLabel">Eidenberger Notenbüchl</h4>
+						</div>
+						<div class="modal-body">
+							<img src="assets/images/product_images/weinbergmusi cd1 cover.jpg" alt=""/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-zero-12 col-xs-7 col-xs-offset-1">
+			<h1>Eidenberger Notenbücht</h1>
+			<p>
+				pol, caesium! cum onus persuadere, omnes verpaes aperto placidus, castus calcariaes. pol. est brevis demolitione, cesaris. ecce, planeta! cur rector cadunt? placidus, germanus musas patienter aperto de altus, bi-color itineris tramitem.
+				nunquam demitto elogium. capio, accola, et solem. bromiums sunt absolutios de germanus zirbus. absolutios sunt glutens de albus poeta. nunquam dignus rumor. cum abactus peregrinatione, omnes cottaes talem fidelis, varius consiliumes.
+			</p>
+			<ol class="">
+				<li>species </li>
+				<li>caesium </li>
+				<li>palatium </li>
+				<li>cobaltum </li>
+				<li>accola </li>
+				<li>ausus </li>
+				<li>orgia </li>
+				<li>brigantium </li>
+				<li>humani generis </li>
+				<li>cubiculum </li>
+				<li>virundum </li>
+				<li>capio </li>
+			</ol>
 
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Show.html: keep
+			<div class="col-zero-3">
+				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></button>
+			</div>
+			<div class="col-zero-3 col-zero-offset-6">
+				<p class="lead text-right">15,00 €</p>
+			</div>
+		</div>
+	</div>
+</div>
 
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
-<f:section name="main">
-<h1>Single View for Product</h1>
-
-<f:flashMessages renderMode="div" />
-<f:render partial="Product/Properties" arguments="{product:product}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Product</f:link.action>
-</f:section>
+</f:comment>
