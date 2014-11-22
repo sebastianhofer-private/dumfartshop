@@ -6,6 +6,7 @@ return array(
 		'explicitADmode' => 'explicitAllow',
 		'installToolPassword' => '$P$CfuZn29gFw3yItFvSzdoCswAhQ5qzL0',
 		'loginSecurityLevel' => 'rsa',
+		'versionNumberInFilename' => '0',
 	),
 	'DB' => array(
 		'database' => 'typo3-cms',

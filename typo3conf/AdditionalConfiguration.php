@@ -15,4 +15,6 @@ if(\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isDevelopmen
 	$GLOBALS['TYPO3_CONF_VARS']['DB']['password'] = 'password';
 	$GLOBALS['TYPO3_CONF_VARS']['DB']['port'] = 3306;
 	$GLOBALS['TYPO3_CONF_VARS']['DB']['username'] = 'typo3-cms';
+
+	$GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword'] = '$P$CfuZn29gFw3yItFvSzdoCswAhQ5qzL0';
 }
