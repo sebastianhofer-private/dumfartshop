@@ -48,6 +48,7 @@ plugin.tx_whoshop.settings {
 	#maxMenuDepth = 0
 	menuType = 0 #default menu type
 	listPageUid = 5
+	defaultCategory = 2
 }
 
 

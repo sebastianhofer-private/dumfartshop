@@ -1,6 +1,6 @@
 lib.nav.breadcrumb = COA
 lib.nav.breadcrumb {
-	wrap = <div class="container-fluid">|</div>
+	wrap = <div class="container-fluid breadcrumb-container">|</div>
 
 	10 = COA
 	10 {
@@ -14,7 +14,6 @@ lib.nav.breadcrumb {
 			includeNotInMenu = 1
 
 			# remove extension detail pages from rootline
-			# data record title is used instead. See also lib.nav.breadcrumb.20/30 below
 			excludeUidList = {$plugin.tx_whoshop.settings.listPageUid}
 
 			1 = TMENU
@@ -62,10 +61,57 @@ lib.nav.breadcrumb {
 		}
 	}
 
-	20 = TEXT
+	20 = COA
 	20 {
-		value = Library
-		wrap = <a href="#" class="visible-xs-block"><button class="btn btn-default btn-long btn-left"><i class="ds-icon-chevron-left"></i>|</button></a>
+
+		#
+		# @TODO add if for following HMENU to hide it when a given list of pages is called
+		#
+		10 = HMENU
+		10 {
+			special = rootline
+			special.range = -2|0
+
+			includeNotInMenu = 1
+
+			# remove extension detail pages from rootline
+			excludeUidList = {$plugin.tx_whoshop.settings.listPageUid}
+
+			1 = TMENU
+			1 {
+				NO = 1
+				NO {
+					stdWrap.htmlSpecialChars = 1
+					ATagTitle.field = title
+					stdWrap.innerWrap = <button class="btn btn-default btn-long btn-left"><i class="ds-icon-chevron-left"></i>|</button>
+					ATagParams = class="visible-xs-block"
+				}
+			}
+		}
+
+
+		20 = USER
+		20 {
+			userFunc      = TYPO3\CMS\Extbase\Core\Bootstrap->run
+			pluginName    = Category
+			extensionName = WhoShop
+			vendorName    = WHO
+			controller    = Category
+			action        = menu
+			switchableControllerActions {
+				Category {
+					1 = menu
+					2 = switch
+				}
+			}
+			settings{
+				isNavBreadcrumb = 1
+				rootParent = 1
+				maxMenuDepth = 3
+				menuType = 4
+				catGiven = 0
+			}
+		}
 	}
 }
 

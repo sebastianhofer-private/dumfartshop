@@ -23,7 +23,7 @@ sebastian.hofer@s-hofer.de
 	)
 
 	###### LANGUAGE ######
-	linkVars = L
+	linkVars = L,tx_whoshop_category|category
 	sys_language_uid = {$lang.config.sys_language_uid}
 	sys_language_mode = {$lang.config.sys_language_mode}
 	language = {$lang.config.language}
