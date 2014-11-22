@@ -50,6 +50,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$products = $this->productRepository->findByCat($category);
 
 		$this->view->assign('products', $products);
+		$this->view->assign('category', $category);
 	}
 
 	/**
