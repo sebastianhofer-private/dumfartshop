@@ -143,7 +143,7 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_product'] = array(
 			'config' => array(
 				'type' => 'input',
 				'size' => 4,
-				'eval' => 'required, trim'
+				'eval' => 'trim'
 			)
 		),
 		'price' => array(
