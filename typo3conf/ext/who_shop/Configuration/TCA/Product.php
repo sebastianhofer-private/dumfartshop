@@ -9,8 +9,8 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_product'] = array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, type, title, description, price, categories',
 	),
 	'types' => array(
-		'0' => array('showitem' => ';;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, title, price, additional_information, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.image, image, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.categories, categories, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.tracks, tracks, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-		'1' => array('showitem' => ';;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, title, sub_title, publishing_number, additional_information, price, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.image, image, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.categories, categories, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.tracks, tracks, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'0' => array('showitem' => ';;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, title, sub_title, publishing_number, additional_information, price, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.image, image, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.categories, categories, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.tracks, tracks, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => ';;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, type, title, price, additional_information, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.image, image, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.categories, categories, --div--;LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_product.div.tracks, tracks, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -103,8 +103,8 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_product'] = array(
 			'config' => array(
 				'type' => 'select',
 				'items' => array(
-					array('Noten', 1),
-					array('Tonträger', 0),
+					array('Noten', 0),
+					array('Tonträger', 1),
 				),
 				'size' => 1,
 				'maxitems' => 1,
