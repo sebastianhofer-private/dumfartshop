@@ -47,6 +47,7 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * sys_categories
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\WHO\WhoShop\Domain\Model\Category>
+	 * @lazy
 	 */
 	protected $categories = NULL;
 
