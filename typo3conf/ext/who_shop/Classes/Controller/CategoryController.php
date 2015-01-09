@@ -47,12 +47,23 @@ class CategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	protected $categories = NULL;
 
 	/**
+	 * @var array
+	 */
+	protected $getArguments = array();
+
+	/**
 	 * action menu
 	 *
 	 * @param \WHO\WhoShop\Domain\Model\Category $category
 	 * @return void
 	 */
 	public function menuAction(\WHO\WhoShop\Domain\Model\Category $category = NULL) {
+
+		$this->getArguments = $_GET;
+
+		if($category == NULL && isset($this->getArguments['tx_whoshop_product']['category']) && $this->getArguments['tx_whoshop_product']['category'] != NULL){
+			$category = $this->categoryRepository->findByUid($this->getArguments['tx_whoshop_product']['category']);
+		}
 
 		if($this->settings['isContentCatNav'] && $category != NULL){
 			$this->settings['rootParent'] = $category->getUid();
