@@ -52,6 +52,11 @@ class CategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	protected $getArguments = array();
 
 	/**
+	 * @var bool
+	 */
+	protected $isProductDetailView = 0;
+
+	/**
 	 * action menu
 	 *
 	 * @param \WHO\WhoShop\Domain\Model\Category $category
@@ -63,6 +68,7 @@ class CategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
 		if($category == NULL && isset($this->getArguments['tx_whoshop_product']['category']) && $this->getArguments['tx_whoshop_product']['category'] != NULL){
 			$category = $this->categoryRepository->findByUid($this->getArguments['tx_whoshop_product']['category']);
+			$this->isProductDetailView = 1;
 		}
 
 		if($this->settings['isContentCatNav'] && $category != NULL){
@@ -88,11 +94,14 @@ class CategoryController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		$unsortedCategories = $this->categoryRepository->findAll();
 
 		$assignArray = array(
+			'isProductDetailView' => $this->isProductDetailView,
 			'catGiven' => $catGiven,
 			'givenCat' => $givenCat,
 			'categories' => $this->categories,
-			'unsortedCategories' => $unsortedCategories
+			'unsortedCategories' => $unsortedCategories,
 		);
+
+		//DebuggerUtility::var_dump($assignArray);
 
 		$this->view->assignMultiple($assignArray);
 	}

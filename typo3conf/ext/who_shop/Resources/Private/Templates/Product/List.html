@@ -3,7 +3,7 @@
 		<div class="col-xs-6 col-md-4 col-lg-3 equal-item">
 			<div class="thumbnail">
 				<f:link.action action="show" controller="Product" extensionName="WhoShop" pluginName="Product" pageUid="5" arguments="{product: product, category: category}">
-					<img src="{f:uri.image(src:'{product.image.uid}' treatIdAsReference:'1')}">
+					<img src="{f:uri.image(src:'{product.image.uid}', treatIdAsReference:'1', maxHeight:'150')}">
 				</f:link.action>
 				<div class="caption">
 					<div class="thumbnail-description">

@@ -1,7 +1,19 @@
 <f:if condition="{catGiven}">
 	<f:for each="{unsortedCategories}" as="category">
 		<f:if condition="{category.uid} == {givenCat}">
-			<f:render partial="Category/Breadcrumb" arguments="{cat: category.parent}"/><li class="active">{category.title}</li>
+			<f:render partial="Category/Breadcrumb" arguments="{cat: category.parent}"/>
+			<f:if condition="{isProductDetailView}">
+				<f:then>
+					<li>
+						<a href="{f:uri.action(action: 'menu', controller: 'Category', arguments: '{category: category}', pageUid: '{settings.listPageUid}')}">
+							{category.title}
+						</a>
+					</li>
+				</f:then>
+				<f:else>
+					<li class="active">{category.title}</li>
+				</f:else>
+			</f:if>
 		</f:if>
 	</f:for>
 	<f:render partial="Category/BreadcrumbSmall" arguments="{cat: category.parent}"/>

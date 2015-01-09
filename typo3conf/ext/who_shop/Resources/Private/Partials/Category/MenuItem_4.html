@@ -1,7 +1,14 @@
 <f:if condition="{catGiven}">
 	<f:for each="{unsortedCategories}" as="category">
 		<f:if condition="{category.uid} == {givenCat}">
-			<f:render partial="Category/BreadcrumbSmall" arguments="{cat: category.parent}"/>
+			<f:if condition="{isProductDetailView}">
+				<f:then>
+					<f:render partial="Category/BreadcrumbSmall" arguments="{cat: category}"/>
+				</f:then>
+				<f:else>
+					<f:render partial="Category/BreadcrumbSmall" arguments="{cat: category.parent}"/>
+				</f:else>
+			</f:if>
 		</f:if>
 	</f:for>
 </f:if>

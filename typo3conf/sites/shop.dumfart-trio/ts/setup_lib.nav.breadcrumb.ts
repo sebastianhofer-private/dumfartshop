@@ -59,6 +59,21 @@ lib.nav.breadcrumb {
 				catGiven = 0
 			}
 		}
+
+		30 = RECORDS
+		30 {
+			stdWrap.if.isTrue.data = GP:tx_whoshop_product|product
+			dontCheckPid = 1
+			tables = tx_whoshop_domain_model_product
+			source.data = GP:tx_whoshop_product|product
+			source.intval = 1
+			conf.tx_whoshop_domain_model_product = TEXT
+			conf.tx_whoshop_domain_model_product {
+				field = title
+				htmlSpecialChars = 1
+			}
+			wrap = <li class="active">|</li>
+		}
 	}
 
 	20 = COA
@@ -69,6 +84,11 @@ lib.nav.breadcrumb {
 		#
 		10 = HMENU
 		10 {
+			stdWrap.if {
+				value = {$plugin.tx_whoshop.settings.listPageUid}
+				isInList.data = page:uid
+				negate = 1
+			}
 			special = rootline
 			special.range = -2|0
 

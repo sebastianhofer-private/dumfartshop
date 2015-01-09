@@ -1,9 +1,18 @@
 <f:if condition="{cat}">
 	<f:if condition="{cat.uid} != {settings.rootParent}">
-		<a href="{f:uri.action(action: 'menu', controller: 'Category', arguments: '{category: cat}', pageUid: '{settings.listPageUid}')}" class="visible-xs-block">
-			<button class="btn btn-default btn-long btn-left"><i class="ds-icon-chevron-left"></i>
-				{cat.title}
-			</button>
-		</a>
+		<f:then>
+			<a href="{f:uri.action(action: 'menu', controller: 'Category', arguments: '{category: cat}', pageUid: '{settings.listPageUid}')}" class="visible-xs-block">
+				<button class="btn btn-default btn-long btn-left"><i class="ds-icon-chevron-left"></i>
+					{cat.title}
+				</button>
+			</a>
+		</f:then>
+		<f:else>
+			<f:link.page pageUid="1" class="visible-xs-block">
+				<button class="btn btn-default btn-long btn-left"><i class="ds-icon-chevron-left"></i>
+					shop.dumfart-trio.at
+				</button>
+			</f:link.page>
+		</f:else>
 	</f:if>
 </f:if>
