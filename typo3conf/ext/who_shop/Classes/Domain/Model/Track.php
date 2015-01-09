@@ -24,12 +24,6 @@ class Track extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $title;
 
 	/**
-	 * trackNumber
-	 * @var int
-	 */
-	protected $trackNumber;
-
-	/**
 	 * authority
 	 * @var string
 	 */
@@ -46,6 +40,11 @@ class Track extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
 	 */
 	protected $example = NULL;
+
+	/**
+	 * @var int
+	 */
+	protected $sorting = 0;
 
 	/**
 	 * Gets the title.
@@ -166,6 +165,24 @@ class Track extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 		return $this;
 	}
+
+	/**
+	 * @return int
+	 */
+	public function getSorting()
+	{
+		return $this->sorting;
+	}
+
+	/**
+	 * @param int $sorting
+	 */
+	public function setSorting($sorting)
+	{
+		$this->sorting = $sorting;
+	}
+
+
 }
 
  ?>

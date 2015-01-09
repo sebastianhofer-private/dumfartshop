@@ -142,6 +142,11 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_track'] = array(
 			'config' => array(
 				'type' => 'passthrough'
 			),
-		),	
+		),
+		'sorting' => array(
+			'config' => array(
+				'type' => 'passthrough'
+			),
+		),
 	),
 );

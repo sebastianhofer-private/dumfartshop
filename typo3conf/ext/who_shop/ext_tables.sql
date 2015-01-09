@@ -53,7 +53,6 @@ CREATE TABLE tx_whoshop_domain_model_track (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	track_number int(11) NOT NULL DEFAULT '0',
 	title varchar(255) DEFAULT '' NOT NULL,
 	authority varchar(255) DEFAULT '' NOT NULL,
 	has_example int(11) NOT NULL DEFAULT '0',
