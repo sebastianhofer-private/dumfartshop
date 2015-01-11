@@ -7,11 +7,11 @@ if (!defined('TYPO3_MODE')) {
 	'WHO.' . $_EXTKEY,
 	'Product',
 	array(
-		'Product' => 'list, show',
+		'Product' => 'list, show, addToBasket',
 	),
 	// non-cacheable actions
 	array(
-		'Product' => '',
+		'Product' => 'addToBasket',
 		
 	)
 );

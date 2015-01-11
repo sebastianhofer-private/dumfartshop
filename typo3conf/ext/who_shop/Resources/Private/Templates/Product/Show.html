@@ -13,6 +13,11 @@
 				<p>{product.additionalInformation}</p>
 			</f:if>
 			<f:render partial="Product/Tracks" arguments="{tracks: product.tracks}"/>
+			<div class="col-zero-3">
+				<f:link.action action="addToBasket" controller="Product" extensionName="WhoShop" pluginName="Product" pageUid="5" arguments="{product: product}">
+					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></button>
+				</f:link.action>
+			</div>
 		</div>
 	</div>
 </div>

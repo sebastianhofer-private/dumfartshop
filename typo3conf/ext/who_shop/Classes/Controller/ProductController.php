@@ -35,6 +35,24 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	protected $categoryRepository = NULL;
 
 	/**
+	 * sessionHandler
+	 *
+	 * @var \WHO\WhoShop\Utility\ShopSessionHandler
+	 * @inject
+	 */
+	protected $shopSessionHandler = NULL;
+
+	/**
+	 * @var array
+	 */
+	protected $assignArray = array();
+
+	/**
+	 * @var bool
+	 */
+	protected $success = FALSE;
+
+	/**
 	 * action list
 	 *
 	 * @return void
@@ -60,7 +78,38 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return void
 	 */
 	public function showAction(\WHO\WhoShop\Domain\Model\Product $product) {
-		$this->view->assign('product', $product);
+
+		$this->shopSessionHandler->setPrefixKey('tx_whoshop_');
+
+		DebuggerUtility::var_dump($product);
+
+		$this->assignArray = array(
+			'product' => $product,
+			'userIsLoggedIn' => $this->shopSessionHandler->testUser()
+		);
+DebuggerUtility::var_dump($GLOBALS['TSFE']->fe_user);
+		DebuggerUtility::var_dump($this->shopSessionHandler->restoreFromSession('product_' . $product->getUid()));
+		die();
+
+		$this->view->assignMultiple($this->assignArray);
 	}
 
+	/**
+	 * @param \WHO\WhoShop\Domain\Model\Product $product
+	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+	 */
+	public function addToBasketAction(\WHO\WhoShop\Domain\Model\Product $product) {
+
+		if(!$this->shopSessionHandler->testUser()){
+			$this->success = FALSE;
+		}else{
+			$this->shopSessionHandler->writeToSession($product, 'product_' . $product->getUid());
+			$this->success = TRUE;
+		}
+
+		$this->request->setArgument('successfullyAddedToBasket', $this->success);
+		$this->request->setArgument('forwardedFromAction', 'addToBasket');
+
+		$this->forward('show','Product','whoshop', $this->request->getArguments());
+	}
 }
