@@ -10,6 +10,7 @@ namespace WHO\WhoShop\Domain\Model;
  *  All rights reserved
  *
  ***************************************************************/
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * Class OrderItem
@@ -23,17 +24,16 @@ class OrderItem extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $orderSize = 0;
 
 	/**
-	 * article
+	 * product
 	 *
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<WHO\WhoShop\Domain\Model\Product>
-	 * @lazy
 	 */
-	protected $article = NULL;
+	protected $product = NULL;
 
 	/**
-	 * @var int
+	 * @var float
 	 */
-	protected $orderValue = 0;
+	protected $orderValue = 0.0;
 
 	/**
 	 * __construct
@@ -52,37 +52,46 @@ class OrderItem extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	protected function initStorageObjects() {
-		$this->article = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->product = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
-	 * @param $article
+	 * Adds a Product
+	 *
+	 * @param \WHO\WhoShop\Domain\Model\Product $product
+	 * @return void
 	 */
-	public function addArticle($article) {
-		$this->article->attach($article);
+	public function addProduct(\WHO\WhoShop\Domain\Model\Product $product) {
+		$this->product->attach($product);
 	}
 
 	/**
-	 * @param $articleToRemove
+	 * Removes a Product
+	 *
+	 * @param \WHO\WhoShop\Domain\Model\Product $productToRemove The Product to be removed
+	 * @return void
 	 */
-	public function removeArticle($articleToRemove) {
-		$this->article->detach($articleToRemove);
+	public function removeProduct(\WHO\WhoShop\Domain\Model\Product $productToRemove) {
+		$this->product->detach($productToRemove);
 	}
 
 	/**
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 * Returns the Product
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\WHO\WhoShop\Domain\Model\Product> $product
 	 */
-	public function getArticle()
-	{
-		return $this->article;
+	public function getProduct() {
+		return $this->product;
 	}
 
 	/**
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $article
+	 * Sets the Product
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\WHO\WhoShop\Domain\Model\Product> $product
+	 * @return void
 	 */
-	public function setArticle($article)
-	{
-		$this->article = $article;
+	public function setProduct(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $product) {
+		$this->product = $product;
 	}
 
 	/**

@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-zero-8 col-zero-offset-2 col-xs-4 col-xs-offset-0">
-			<img src="{f:uri.image(src:'{product.image.uid}' treatIdAsReference:'1')}"  class="img-responsive img-detail-thumb">
+			<img src="{f:uri.image(src:'{product.image.uid}', treatIdAsReference:'1', maxWidth:'300')}"  class="img-responsive img-detail-thumb">
 		</div>
 		<div class="col-zero-12 col-xs-7 col-xs-offset-1">
 			<h1>{product.title}
@@ -13,10 +13,35 @@
 				<p>{product.additionalInformation}</p>
 			</f:if>
 			<f:render partial="Product/Tracks" arguments="{tracks: product.tracks}"/>
-			<div class="col-zero-3">
-				<f:link.action action="addToBasket" controller="Product" extensionName="WhoShop" pluginName="Product" pageUid="5" arguments="{product: product}">
-					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></button>
-				</f:link.action>
+			<div class="col-zero-7">
+
+				<f:if condition="{articleInBasket}">
+					<f:then>
+						<f:form action="removeFromBasket" controller="Product" class="form-inline" additionalParams="{tx_whoshop_product:{category: category}}">
+								<f:form.hidden name="product" value="{product}" />
+								<f:form.hidden name="category" value="{category}" />
+								<f:form.button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-shopping-cart"></span> aus Warenkorb entfernen <span class="glyphicon glyphicon-chevron-right"></span></f:form.button>
+						</f:form>
+					</f:then>
+					<f:else>
+						<f:form action="addToBasket" controller="Product" class="form-inline" additionalParams="{tx_whoshop_product:{category: category}}">
+
+							<f:form.hidden name="product" value="{product}" />
+							<f:form.hidden name="category" value="{category}" />
+							<f:form.button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></f:form.button>
+							<div class="form-group">
+								<div class="input-group">
+									<f:form.textfield name="orderSize" value="1" class="form-control" size="1" maxlength="2"/>
+									<div class="input-group-addon">Stk.</div>
+								</div>
+							</div>
+
+						</f:form>
+					</f:else>
+				</f:if>
+			</div>
+			<div class="col-zero-3 col-zero-offset-2">
+				<p class="lead text-right"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{product.price}</f:format.currency></p>
 			</div>
 		</div>
 	</div>

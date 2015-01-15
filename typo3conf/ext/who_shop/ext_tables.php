@@ -15,6 +15,12 @@ if (!defined('TYPO3_MODE')) {
 	'Category'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	$_EXTKEY,
+	'OrderItem',
+	'OrderItem'
+);
+
 if (TYPO3_MODE === 'BE') {
 
 	/**
@@ -109,5 +115,67 @@ $GLOBALS['TCA']['tx_whoshop_domain_model_track'] = array(
 		'searchFields' => 'title,description',
 		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Track.php',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_whoshop_domain_model_track.png'
+	),
+);
+
+/**
+ * Domain Model Order
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('ttx_whoshop_domain_model_order');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_whoshop_domain_model_order', 'EXT:who_shop/Resources/Private/Language/locallang_csh_tx_whoshop_domain_model_order.xlf');
+$GLOBALS['TCA']['tx_whoshop_domain_model_order'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_order',
+		'label' => 'title',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/Order.php',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/relation.gif'
+	),
+);
+
+/**
+ * Domain Model OrderItem
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_whoshop_domain_model_orderitem');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_whoshop_domain_model_orderitem', 'EXT:who_shop/Resources/Private/Language/locallang_csh_tx_whoshop_domain_model_orderitem.xlf');
+$GLOBALS['TCA']['tx_whoshop_domain_model_orderitem'] = array(
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:who_shop/Resources/Private/Language/locallang_db.xlf:tx_whoshop_domain_model_orderitem',
+		'label' => 'title',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'dynamicConfigFile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/TCA/OrderItem.php',
+		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath($_EXTKEY) . 'Resources/Public/Icons/relation.gif'
 	),
 );

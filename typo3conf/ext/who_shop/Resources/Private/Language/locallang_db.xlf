@@ -73,6 +73,14 @@
 			<trans-unit id="tx_whoshop_domain_model_category">
 				<source>Category</source>
 			</trans-unit>
+
+			<trans-unit id="tx_whoshop_domain_model_order">
+				<source>Order</source>
+			</trans-unit>
+
+			<trans-unit id="tx_whoshop_domain_model_orderitem">
+				<source>OrderItem</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

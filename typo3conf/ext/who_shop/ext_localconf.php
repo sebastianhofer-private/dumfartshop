@@ -7,11 +7,11 @@ if (!defined('TYPO3_MODE')) {
 	'WHO.' . $_EXTKEY,
 	'Product',
 	array(
-		'Product' => 'list, show, addToBasket',
+		'Product' => 'list, show, addToBasket, removeFromBasket',
 	),
 	// non-cacheable actions
 	array(
-		'Product' => 'addToBasket',
+		'Product' => 'addToBasket, removeFromBasket',
 		
 	)
 );
@@ -29,3 +29,15 @@ if (!defined('TYPO3_MODE')) {
 	)
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'WHO.' . $_EXTKEY,
+	'OrderItem',
+	array(
+		'OrderItem' => 'basketList',
+	),
+	// non-cacheable actions
+	array(
+		'OrderItem' => 'basketList',
+
+	)
+);

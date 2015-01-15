@@ -10,6 +10,7 @@ namespace WHO\WhoShop\Domain\Model;
  *  All rights reserved
  *
  ***************************************************************/
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * Class Order
@@ -18,9 +19,11 @@ namespace WHO\WhoShop\Domain\Model;
 class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
-	 * @var int
+	 * fe_user relation
+	 *
+	 * @var \WHO\WhoShop\Domain\Model\User
 	 */
-	protected $userId = 0;
+	protected $user = NULL;
 
 	/**
 	 * @var int
@@ -39,7 +42,7 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\WHO\WhoShop\Domain\Model\OrderItem>
-	 * @lazy
+	 * @cascade remove
 	 */
 	protected $orderItem = NULL;
 
@@ -56,11 +59,13 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return void
 	 */
 	protected function initStorageObjects() {
-		$this->orderItem = new \WHO\WhoShop\Domain\Model\OrderItem();
+		$this->orderItem = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
-	 * @param OrderItem $orderItem
+	 * Adds a OrderItem
+	 *
+	 * @param \WHO\WhoShop\Domain\Model\OrderItem $orderItem
 	 * @return void
 	 */
 	public function addOrderItem(\WHO\WhoShop\Domain\Model\OrderItem $orderItem) {
@@ -68,7 +73,8 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * @param OrderItem $orderItemToRemove
+	 * Removes a OrderItem
+	 * @param \WHO\WhoShop\Domain\Model\OrderItem $orderItemToRemove
 	 * @return void
 	 */
 	public function removeOrderItem(\WHO\WhoShop\Domain\Model\OrderItem $orderItemToRemove) {
@@ -92,7 +98,8 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 * Returns the OrderItem
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\WHO\WhoShop\Domain\Model\OrderItem> $orderItem
 	 */
 	public function getOrderItem()
 	{
@@ -100,7 +107,8 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $orderItem
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\WHO\WhoShop\Domain\Model\OrderItem> $orderItem
+	 * @return void
 	 */
 	public function setOrderItem($orderItem)
 	{
@@ -124,19 +132,22 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
-	 * @return int
+	 * Returns the user
+	 *
+	 * @return \WHO\WhoShop\Domain\Model\User $user
 	 */
-	public function getUserId()
-	{
-		return $this->userId;
+	public function getUser() {
+		return $this->user;
 	}
 
 	/**
-	 * @param int $userId
+	 * Sets the user
+	 *
+	 * @param \WHO\WhoShop\Domain\Model\User $user
+	 * @return void
 	 */
-	public function setUserId($userId)
-	{
-		$this->userId = $userId;
+	public function setUser(\WHO\WhoShop\Domain\Model\User $user) {
+		$this->user = $user;
 	}
 
 }

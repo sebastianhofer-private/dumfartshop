@@ -1,0 +1,115 @@
+{namespace who=WHO\WhoShop\ViewHelpers}
+<div class="container-fluid">
+	<f:for each="{products}" as="product"><who:basket.entry uid="{product.uid}" basketArray="{basket}">
+		<div class="row basket-container">
+			<div class="col-zero-12 basket-container-header">
+				<p class="h1">{product.title}
+					<f:if condition="{product.publishingNumber}">
+						<span class="publishing-number">({product.publishingNumber})</span>
+					</f:if>
+				</p>
+			</div>
+			<div class="basket-container-left col-zero-12">
+				<div class="basket-container-content">
+					<div class="col-zero-2 basket-image">
+						<img src="{f:uri.image(src:'{product.image.uid}', treatIdAsReference:'1', maxWidth:'150')}" class="img-responsive img-detail-thumb" alt=""/>
+					</div>
+					<div class="col-zero-5 col-zero-offset-1 basket-text">
+						<f:if condition="{product.additionalInformation}">
+							<p>{product.additionalInformation}</p>
+						</f:if>
+					</div>
+					<div class="col-zero-3 col-zero-offset-1 basket-container-right">
+						<input type="text" size="2" value="{pieces}" class="text-right"/>
+						<p class="lead"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{money}</f:format.currency></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-zero-3 col-zero-offset-9 basket-container-footer">
+				<button type="button" class="btn btn-danger btn-orderinf-delete">löschen</button>
+			</div>
+		</div>
+	</who:basket.entry>
+	</f:for>
+	<div class="row basket-summary">
+		<div class="col-xs-9">
+			<p class="h4">Bestellsumme:</p>
+		</div>
+		<div class="col-xs-3">
+			<p class="lead">
+				<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">
+					<who:basket.sum basketArray="{basket}" />
+				</f:format.currency>
+			</p>
+		</div>
+	</div>
+</div>
+
+<f:comment>
+
+	<div class="container-fluid">
+		<div class="row basket-container">
+			<div class="col-zero-12 basket-container-header">
+				<p class="h1"><a href="#">Weinbergmusi CD</a></p>
+			</div>
+			<div class="basket-container-left col-zero-12">
+				<div class="basket-container-content">
+					<div class="col-zero-2 basket-image">
+						<img src="assets/images/product_images/weinbergmusi cd1 cover.jpg" class="img-responsive img-detail-thumb" alt=""/>
+					</div>
+					<div class="col-zero-5 col-zero-offset-1 basket-text">
+						<p>Das ist eine längere Beschreibugn, aber doch uch wieder nicht zu lang</p>
+					</div>
+					<div class="col-zero-3 col-zero-offset-1 basket-container-right">
+						<input type="text" size="2" value="1" class="text-right"/>
+						<p class="lead">15,00 €</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-zero-3 col-zero-offset-9 basket-container-footer">
+				<button type="button" class="btn btn-danger btn-orderinf-delete">löschen</button>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script type="text/javascript">
+		<![CDATA[//<![CDATA[
+		$(document).ready(function () {
+			// (1) define some post-parameters with action, controller and stuff for the action
+			var params = {
+				tx_myextension_pi1: {
+					action : "ajaxTest",
+					controller : "Ajax",
+					someOtherParamsForAction: "..."
+				}
+			};
+			// (2) do the ajax-call
+			$.post(]]>{f:uri.page(pageType:'666')}<![CDATA[, params, function (json) {
+			// (3) evaluate the response from server
+			if (json && json.success) {
+				$("#myContainer").html(json.content);
+				return;
+			}
+			try {
+				console.log(json);
+			} catch (e) {
+
+			}
+		}, "json");
+		});
+		]]>//]]>
+	</script>
+
+
+	index.php
+	?type=666
+	&tx_myextension_pi1[action]=ajaxTest
+	&tx_myextension_pi1[controller]=Ajax
+	&tx_myextension_pi1[someOtherParamsForAction]=...
+
+</f:comment>

@@ -35,12 +35,34 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	protected $categoryRepository = NULL;
 
 	/**
-	 * sessionHandler
+	 * orderRepository
 	 *
-	 * @var \WHO\WhoShop\Utility\ShopSessionHandler
+	 * @var \WHO\WhoShop\Domain\Repository\OrderRepository
 	 * @inject
 	 */
-	protected $shopSessionHandler = NULL;
+	protected $orderRepository = NULL;
+
+	/**
+	 * orderItemRepository
+	 *
+	 * @var \WHO\WhoShop\Domain\Repository\OrderItemRepository
+	 * @inject
+	 */
+	protected $orderItemRepository = NULL;
+
+	/**
+	 * @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager
+	 * @inject
+	 */
+	protected $persistenceManager = NULL;
+
+	/**
+	 * sessionHandler
+	 *
+	 * @var \WHO\WhoShop\Utility\BasketHandler
+	 * @inject
+	 */
+	protected $basketHandler = NULL;
 
 	/**
 	 * @var array
@@ -79,18 +101,12 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 */
 	public function showAction(\WHO\WhoShop\Domain\Model\Product $product) {
 
-		$this->shopSessionHandler->setPrefixKey('tx_whoshop_');
-
-		DebuggerUtility::var_dump($product);
-
 		$this->assignArray = array(
 			'product' => $product,
-			'userIsLoggedIn' => $this->shopSessionHandler->testUser()
+			'articleInBasket' => $this->basketHandler->findItemInOrder($product->getUid())['productFound'],
+			'category' => $this->request->getArgument('category')
+			//'userIsLoggedIn' => $this->shopSessionHandler->testUser()
 		);
-DebuggerUtility::var_dump($GLOBALS['TSFE']->fe_user);
-		DebuggerUtility::var_dump($this->shopSessionHandler->restoreFromSession('product_' . $product->getUid()));
-		die();
-
 		$this->view->assignMultiple($this->assignArray);
 	}
 
@@ -99,17 +115,35 @@ DebuggerUtility::var_dump($GLOBALS['TSFE']->fe_user);
 	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
 	 */
 	public function addToBasketAction(\WHO\WhoShop\Domain\Model\Product $product) {
-
-		if(!$this->shopSessionHandler->testUser()){
-			$this->success = FALSE;
-		}else{
-			$this->shopSessionHandler->writeToSession($product, 'product_' . $product->getUid());
-			$this->success = TRUE;
+		if(!$this->basketHandler->addItemToOrder($product->getUid(),$this->request->getArgument('orderSize'),$product->getPrice())){
+			//There should be done something. An error or soomething else...
 		}
 
-		$this->request->setArgument('successfullyAddedToBasket', $this->success);
-		$this->request->setArgument('forwardedFromAction', 'addToBasket');
-
 		$this->forward('show','Product','whoshop', $this->request->getArguments());
+	}
+
+	/**
+	 * @param \WHO\WhoShop\Domain\Model\Product $product
+	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+	 */
+	public function removeFromBasketAction(\WHO\WhoShop\Domain\Model\Product $product) {
+		if(!$this->basketHandler->removeItemFromOrder($product->getUid())){
+			//There should be done something. An error or soomething else...
+		}
+		$this->forward('show','Product','whoshop', $this->request->getArguments());
+	}
+
+	public function ajaxAction(){
+		$arguments = $this->request->getArguments();
+
+		$this->view->assign("test", "some content");
+		$this->view->assign("someOtherParamsForAction", $arguments['someOtherParamsForAction']);
+
+		$content = $this->view->render();
+
+		return json_encode(array(
+			'success' => true,
+			'content' => $content
+		));
 	}
 }

@@ -92,6 +92,22 @@ config.tx_extbase{
 					}
 				}
 			}
+
+			\TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
+				0 = WHO\WhoShop\Domain\Model\User
+			}
+
+			WHO\WhoShop\Domain\Model\User {
+				mapping {
+					recordType = 0
+					tableName = fe_users
+					columns {
+						lockToDomain {
+							mapOnProperty = lockToDomain
+						}
+					}
+				}
+			}
 		}
 
 		objects {

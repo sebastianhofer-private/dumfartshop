@@ -39,6 +39,7 @@ class ShopSessionHandler implements \TYPO3\CMS\Core\SingletonInterface {
 	 * @return bool
 	 */
 	public function testUser() {
+		$this->userIsloggedIn = FALSE;
 		if($GLOBALS['TSFE']->loginUser){
 			$this->userIsloggedIn = TRUE;
 		}

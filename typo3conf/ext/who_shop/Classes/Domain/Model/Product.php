@@ -36,12 +36,11 @@ class Product extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	protected $publishingNumber = '';
 
-	/**
-	 * price
-	 * 
-	 * @var integer
-	 */
-	protected $price = 0;
+    /**
+     *
+     * @var float
+     */
+	protected $price = 0.0;
 
 	/**
 	 * sys_categories
