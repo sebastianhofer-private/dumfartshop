@@ -74,6 +74,21 @@ lib.nav.breadcrumb {
 			}
 			wrap = <li class="active">|</li>
 		}
+
+		40 = RECORDS
+		40 {
+			stdWrap.if.isTrue.data = GP:tx_whoshop_product|product|__identity
+			dontCheckPid = 1
+			tables = tx_whoshop_domain_model_product
+			source.data = GP:tx_whoshop_product|product|__identity
+			source.intval = 1
+			conf.tx_whoshop_domain_model_product = TEXT
+			conf.tx_whoshop_domain_model_product {
+				field = title
+				htmlSpecialChars = 1
+			}
+			wrap = <li class="active">|</li>
+		}
 	}
 
 	20 = COA

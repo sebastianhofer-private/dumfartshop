@@ -8,7 +8,7 @@ setting {
 	protocol = http://
 	admPanel = 0
 	no_cache = 0
-	concatenateJs = 0
+	concatenateJs = 1
 	concatenateCss = 1
 	compressJs = 1
 	compressCss = 1
