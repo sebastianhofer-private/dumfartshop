@@ -23,7 +23,8 @@
 	$backslash: "\e";
 
   //$withslash: "\"\\#{$code}\"";
-	$withslash: "\"#{$backslash + $char}\"";
+	$withslash: "\"\\e#{$char}\"";
+	//$withslash: "\"#{$backslash + $char}\"";
   .ds-icon-#{$name}:before {
     content: unquote($withslash);
   }
