@@ -495,6 +495,15 @@ return array (
       array (
       ),
     ),
+    'femanager' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/femanager/',
+      'classesPath' => 'Classes/',
+      'suggestions' => 
+      array (
+      ),
+    ),
     'extension_builder' => 
     array (
       'state' => 'active',
