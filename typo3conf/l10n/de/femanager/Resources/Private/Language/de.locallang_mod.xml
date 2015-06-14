@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="de" type="array">
+			<label index="mlang_tabs_tab">FE Manager</label>
+			<label index="mlang_labels_tabdescr">FE Manager Modul um eine Liste aller Frontend Benutzer zu sehen. Benutzer können auch nach Benutzergruppe oder durch ein Suchwort gefiltert werden. Desweiteren ist es möglich, Benutzer anzuzeigen, die gerade Online sind.</label>
+			<label index="mlang_labels_tablabel">FE Manager</label>
+		</languageKey>
+  </data>
+</T3locallangExt>

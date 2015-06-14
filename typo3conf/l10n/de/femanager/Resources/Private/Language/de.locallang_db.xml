@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallangExt>
+  <data type="array">
+    <languageKey index="de" type="array">
+			<label index="tx_femanager_domain_model_user">Benutzer</label>
+			<label index="tx_femanager_domain_model_user.username">Benutzer</label>
+			<label index="tx_femanager_domain_model_user.password">Passwort</label>
+			<label index="tx_femanager_domain_model_user.usergroup">Benutzergruppe</label>
+			<label index="tx_femanager_domain_model_user.name">Name</label>
+			<label index="tx_femanager_domain_model_user.firstName">Vorname</label>
+			<label index="tx_femanager_domain_model_user.middleName">Mittelname</label>
+			<label index="tx_femanager_domain_model_user.lastName">Nachname</label>
+			<label index="tx_femanager_domain_model_user.dateOfBirth">Geburtstag</label>
+			<label index="tx_femanager_domain_model_user.gender">Geschlecht</label>
+			<label index="tx_femanager_domain_model_user.gender.item0">männlich</label>
+			<label index="tx_femanager_domain_model_user.gender.item1">weiblich</label>
+			<label index="tx_femanager_domain_model_user.address">Adresse</label>
+			<label index="tx_femanager_domain_model_user.telephone">Telefon</label>
+			<label index="tx_femanager_domain_model_user.fax">Fax</label>
+			<label index="tx_femanager_domain_model_user.email">E-Mail</label>
+			<label index="tx_femanager_domain_model_user.title">Titel</label>
+			<label index="tx_femanager_domain_model_user.zip">PLZ</label>
+			<label index="tx_femanager_domain_model_user.city">Stadt</label>
+			<label index="tx_femanager_domain_model_user.country">Land</label>
+			<label index="tx_femanager_domain_model_user.www">URL</label>
+			<label index="tx_femanager_domain_model_user.company">Firma</label>
+			<label index="tx_femanager_domain_model_user.image">Bild</label>
+			<label index="tx_femanager_domain_model_user.lastlogin">Letzter Login</label>
+			<label index="tx_femanager_domain_model_user.captcha">Captcha</label>
+			<label index="fe_users.crdate">Erstellungszeitpunkt</label>
+			<label index="fe_users.tstamp">Zeitpunkt der letzten Profiländerung</label>
+			<label index="fe_users.registrationconfirmedbyuser">Registrierung durch Benutzer bestätigt</label>
+			<label index="fe_users.registrationconfirmedbyadmin">Registrierung durch Admin bestätigt</label>
+			<label index="fe_users.tab">Benutzer Registrierung</label>
+			<label index="fe_users.log">Benutzer Log</label>
+			<label index="fe_users.changerequest">Änderungswunsch</label>
+			<label index="tx_femanager_domain_model_log">Benutzer Log</label>
+			<label index="tx_femanager_domain_model_log.title">Bezeichnung</label>
+			<label index="tx_femanager_domain_model_log.crdate">Zeitpunkt</label>
+			<label index="tx_femanager_domain_model_log.state">Status</label>
+			<label index="tx_femanager_domain_model_log.state.100">Registrierung</label>
+			<label index="tx_femanager_domain_model_log.state.101">Neue Registrierung</label>
+			<label index="tx_femanager_domain_model_log.state.102">Registrierung durch Benutzer bestätigt</label>
+			<label index="tx_femanager_domain_model_log.state.103">Registrierung durch Admin bestätigt</label>
+			<label index="tx_femanager_domain_model_log.state.104">Registrierung durch Benutzer abgebrochen</label>
+			<label index="tx_femanager_domain_model_log.state.105">Registrierung durch Admin abgebrochen</label>
+			<label index="tx_femanager_domain_model_log.state.106">Registrierungsanfrage</label>
+			<label index="tx_femanager_domain_model_log.state.200">Änderung</label>
+			<label index="tx_femanager_domain_model_log.state.201">Profil Änderung</label>
+			<label index="tx_femanager_domain_model_log.state.202">Profil Änderung durch Admin bestätigt</label>
+			<label index="tx_femanager_domain_model_log.state.203">Profil Änderung durch Admin abgelehnt</label>
+			<label index="tx_femanager_domain_model_log.state.204">Profil Änderung angefragt</label>
+			<label index="tx_femanager_domain_model_log.state.205">Profil Änderung aus Sicherheitsgründen abgelehnt</label>
+			<label index="tx_femanager_domain_model_log.state.300">Löschen</label>
+			<label index="tx_femanager_domain_model_log.state.301">Profil gelöscht</label>
+			<label index="tx_femanager_domain_model_log.state.400">Einladung</label>
+			<label index="tx_femanager_domain_model_log.state.401">Profil erstellt und Benutzer eingeladen</label>
+			<label index="tx_femanager_domain_model_log.state.402">Profil gelöscht durch den Benutzer</label>
+			<label index="tx_femanager_domain_model_log.state.403">Falsche Prüfsumme</label>
+			<label index="tx_femanager_domain_model_log.state.404">Sie haben versucht eine Seite mit beschränktem Zugriff aufzurufen</label>
+			<label index="tx_femanager_domain_model_log.state.405">Passwort geändert und Profil aktiviert</label>
+			<label index="tx_femanager_domain_model_log.user">Benutzer</label>
+
+			<label index="flexform.main.title">Einstellungen</label>
+			<label index="flexform.main.view">Ansicht wählen</label>
+			<label index="flexform.main.view.0">Registrierung</label>
+			<label index="flexform.main.view.1">Profil ändern</label>
+			<label index="flexform.main.view.2">Listenansicht</label>
+			<label index="flexform.main.view.3">Detailansicht</label>
+			<label index="flexform.main.view.4">Einladung</label>
+			<label index="flexform.new.title">Registrierung</label>
+			<label index="flexform.new.fields">Felder für Formular wählen (keine = alle Felder)</label>
+			<label index="flexform.new.overrideUserGroup">Zugewiesene Benutzergruppen für neue Benutzer</label>
+			<label index="flexform.new.confirmByUser">Registrierung muss vom Benutzer bestätigt werden</label>
+			<label index="flexform.new.confirmByAdmin">Registrierung muss vom Admin bestätigt werden (eine oder mehrere E-Mails eintragen)</label>
+			<label index="flexform.new.notifyAdmin">Hinweis-E-Mail an Admin (eine oder mehrere E-Mails eintragen)</label>
+			<label index="flexform.edit.title">Profiländerung</label>
+			<label index="flexform.edit.fields">Felder für Formular wählen (keine = alle Felder)</label>
+			<label index="flexform.edit.showDeleteLink">Zeige Löschen-Schaltfläche im Bearbeiten-Formular</label>
+			<label index="flexform.edit.confirmByAdmin">Profiländerung muss vom Admin bestätigt werden (eine oder mehrere E-Mails eintragen)</label>
+			<label index="flexform.edit.notifyAdmin">Hinweis-E-Mail bei Änderung an Admin (eine oder mehrere E-Mails eintragen)</label>
+			<label index="flexform.list.title">Listenansicht</label>
+			<label index="flexform.list.filter">Aktiviere Suchmaske</label>
+			<label index="flexform.list.limit">Limit</label>
+			<label index="flexform.list.orderby">Sortiert nach Feld</label>
+			<label index="flexform.list.orderby.0">Nachname</label>
+			<label index="flexform.list.orderby.1">Vorname</label>
+			<label index="flexform.list.orderby.2">Firma</label>
+			<label index="flexform.list.sorting">Aufsteigend/Absteigend</label>
+			<label index="flexform.list.sorting.0">Aufsteigend</label>
+			<label index="flexform.list.sorting.1">Absteigend</label>
+			<label index="flexform.list.usergroup">Zeige Benutzer von Benutzergruppen (leer = zeige alle)</label>
+			<label index="flexform.show.title">Detailansicht</label>
+			<label index="flexform.show.user">Zu zeigender Benutzer</label>
+			<label index="flexform.show.user.1">[Eingeloggter Benutzer]</label>
+			<label index="flexform.invitation.title">Einladung</label>
+			<label index="flexform.invitation.allowedUserGroups">Beschränke "Einladung hinzufügen" für eine oder mehrere Benutzergruppen (leer = keine Beschränkung)</label>
+			<label index="flexform.invitation.fields">Felder für Formular wählen (keine = alle Felder)</label>
+			<label index="flexform.invitation.overrideUserGroup">Zugewiesene Benutzergruppen für neue Benutzer</label>
+			<label index="flexform.invitation.confirmByAdmin">Registrierung muss vom Admin bestätigt werden (eine oder mehrere E-Mails eintragen)</label>
+			<label index="flexform.invitation.notifyAdminStep1">Hinweis-E-Mail an Admin (eine oder mehrere E-Mails eintragen)</label>
+			<label index="flexform.invitation.notifyAdmin">Admin benachrichtigen, wenn ein Benutzer ein Passwort setzt (eine oder mehrere E-Mails eintragen)</label>
+
+			<label index="pleaseChoose">Bitte wählen...</label>
+		</languageKey>
+  </data>
+</T3locallangExt>
