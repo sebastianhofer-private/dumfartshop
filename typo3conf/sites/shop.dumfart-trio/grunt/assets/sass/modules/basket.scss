@@ -27,13 +27,25 @@
 	}
 
 	.basket-container-right {
-
+		float: right;
+		text-align: right;
 	}
 	.basket-container-footer {
 		clear: both;
+
+		button {
+			float: right;
+		}
 	}
 }
 .order-total {
 	border-top: 1px solid $brand-primary;
 }
 
+.basket-summary {
+	.basket-total,
+	.basket-mail-expenses,
+	.basket-sum {
+		text-align: right;
+	}
+}
