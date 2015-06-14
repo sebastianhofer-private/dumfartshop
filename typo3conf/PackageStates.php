@@ -513,6 +513,15 @@ return array (
       array (
       ),
     ),
+    'realurl' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/realurl/',
+      'classesPath' => 'Classes/',
+      'suggestions' => 
+      array (
+      ),
+    ),
     'femanager' => 
     array (
       'state' => 'active',

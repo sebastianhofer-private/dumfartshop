@@ -35,6 +35,7 @@ sebastian.hofer@s-hofer.de
 
 	###### TYPOLINK ######
 	absRefPrefix = {$setting.protocol}{$setting.host}/
+	baseURL = {$setting.protocol}{$setting.host}/
 	prefixLocalAnchors = all
 	typolinkCheckRootline = 0
 	content_from_pid_allowOutsideDomain = 1

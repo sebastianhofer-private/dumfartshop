@@ -15,7 +15,7 @@ setting {
 	index_enable = 1
 	sendCacheHeaders = 1
 	sendCacheHeaders_onlyWhenLoginDeniedInBranch = 1
-	#tx_realurl_enable = 1
+	tx_realurl_enable = 1
 }
 
 /**
