@@ -495,6 +495,24 @@ return array (
       array (
       ),
     ),
+    'static_info_tables_de' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/static_info_tables_de/',
+      'classesPath' => 'Classes/',
+      'suggestions' => 
+      array (
+      ),
+    ),
+    'static_info_tables' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/static_info_tables/',
+      'classesPath' => 'Classes/',
+      'suggestions' => 
+      array (
+      ),
+    ),
     'femanager' => 
     array (
       'state' => 'active',

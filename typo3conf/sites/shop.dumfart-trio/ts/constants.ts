@@ -53,6 +53,18 @@ plugin.tx_whoshop.settings {
 	defaultCategory = 2
 }
 
+plugin.tx_femanager {
+	view {
+		# cat=plugin.tx_femanager/file; type=string; label= Path to template root (FE)
+		templateRootPath = typo3conf/sites/shop.dumfart-trio/html/ext/femanager/Templates/
+
+		# cat=plugin.tx_femanager/file; type=string; label= Path to template partials (FE)
+		partialRootPath = typo3conf/sites/shop.dumfart-trio/html/ext/femanager/Partials/
+
+		# cat=plugin.tx_femanager/file; type=string; label= Path to template layouts (FE)
+		layoutRootPath = typo3conf/sites/shop.dumfart-trio/html/ext/femanager/Layouts/
+	}
+}
 
 /**
  * Language Settings
