@@ -46,6 +46,8 @@ module.exports = function(grunt) {
 					],
 					'../assets/js/application.js': [
 						'assets/scripts/modules/equal.heights.js',
+						'assets/scripts/modules/ajaxActionCall.js',
+						//'assets/scripts/modules/loader.js',
 						'assets/scripts/dumfart.js',
 						'!assets/scripts/vendor/bootstrap/*.js'
 					],

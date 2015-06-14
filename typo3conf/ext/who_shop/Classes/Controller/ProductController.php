@@ -12,6 +12,7 @@ namespace WHO\WhoShop\Controller;
  *  
  ***************************************************************/
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use WHO\WhoShop\Domain\Model\Product;
 
 /**
  * ProductController
@@ -57,12 +58,20 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	protected $persistenceManager = NULL;
 
 	/**
-	 * sessionHandler
+	 * basketHandler
 	 *
 	 * @var \WHO\WhoShop\Utility\BasketHandler
 	 * @inject
 	 */
 	protected $basketHandler = NULL;
+
+	/**
+	 * sessionHandler
+	 *
+	 * @var \WHO\WhoShop\Utility\ShopSessionHandler
+	 * @inject
+	 */
+	protected $sessionHandler = NULL;
 
 	/**
 	 * @var array
@@ -81,13 +90,28 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 */
 	public function listAction() {
 
+		$childList = array();
 		$category = $this->categoryRepository->findByUid($_GET['tx_whoshop_category']['category']);
 
+		DebuggerUtility::var_dump($category);
+
+		$this->getCatUidListRecursive($category, $childList);
+
+		DebuggerUtility::var_dump($childList, 'childList');
 		if($category == NULL){
 			$category = $this->categoryRepository->findByUid($this->settings['defaultCategory']);
 		}
 
 		$products = $this->productRepository->findByCat($category);
+		$productsArray = $products->toArray();
+
+		if(empty($productsArray) && !empty($childList)){
+			DebuggerUtility::var_dump('products empty');
+
+			$products = $this->productRepository->findByCatList($childList);
+		}
+
+		DebuggerUtility::var_dump($products, 'Produkte');
 
 		$this->view->assign('products', $products);
 		$this->view->assign('category', $category);
@@ -100,7 +124,7 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return void
 	 */
 	public function showAction(\WHO\WhoShop\Domain\Model\Product $product) {
-
+		DebuggerUtility::var_dump($this->basketHandler->getOrder());
 		$this->assignArray = array(
 			'product' => $product,
 			'articleInBasket' => $this->basketHandler->findItemInOrder($product->getUid())['productFound'],
@@ -112,14 +136,19 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
 	/**
 	 * @param \WHO\WhoShop\Domain\Model\Product $product
-	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+	 * @return string
 	 */
 	public function addToBasketAction(\WHO\WhoShop\Domain\Model\Product $product) {
+		$arguments = $this->request->getArguments();
 		if(!$this->basketHandler->addItemToOrder($product->getUid(),$this->request->getArgument('orderSize'),$product->getPrice())){
 			//There should be done something. An error or soomething else...
 		}
 
-		$this->forward('show','Product','whoshop', $this->request->getArguments());
+		//$this->forward('show','Product','whoshop', $this->request->getArguments());
+		return json_encode(array(
+			'success' => true,
+			'arguments' => $arguments,
+		));
 	}
 
 	/**
@@ -133,17 +162,78 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->forward('show','Product','whoshop', $this->request->getArguments());
 	}
 
+	/**
+	 * @return string
+	 */
 	public function ajaxAction(){
-		$arguments = $this->request->getArguments();
+		$success = FALSE;
+		$basketCount = 0;
+		$product = $this->request->getArgument('product');
+		$orderSize = $this->request->getArgument('ordersize');
+		$forwarAction = $this->request->getArgument('forwardAction');
 
-		$this->view->assign("test", "some content");
-		$this->view->assign("someOtherParamsForAction", $arguments['someOtherParamsForAction']);
+		if($product != 0){
+			switch($forwarAction) {
+				case 'addToBasket': $success = $this->addToBasket($this->productRepository->findByUid($product), $orderSize);
+					break;
+				case 'removeFromBasket': $success = $this->removeFromBasket($this->productRepository->findByUid($product));
+					break;
+				case 'updateOrderSize': $success = $this->updateOrderSize($product, $orderSize);
+					break;
+			}
 
-		$content = $this->view->render();
+			$basketCount = $this->basketHandler->getOrder();
+		}
 
-		return json_encode(array(
-			'success' => true,
-			'content' => $content
+		return json_encode(
+			array(
+				'success' => $success,
+				'basketcount' => '4',
 		));
+	}
+
+	/**
+	 * @param \WHO\WhoShop\Domain\Model\Product $product
+	 * @return string
+	 */
+	public function addToBasket(\WHO\WhoShop\Domain\Model\Product $product, $orderSize = 0) {
+		$returnValue = FALSE;
+		if($this->basketHandler->addItemToOrder($product->getUid(),$orderSize ,$product->getPrice())){
+			//There should be done something. An error or soomething else...
+			$returnValue = TRUE;
+		}
+
+		//$this->forward('show','Product','whoshop', $this->request->getArguments());
+		return $returnValue;
+	}
+
+	public function removeFromBasket(\WHO\WhoShop\Domain\Model\Product $product) {
+		$returnValue = FALSE;
+		if($this->basketHandler->removeItemFromOrder($product->getUid())){
+			$returnValue = TRUE;
+		}
+
+		return $returnValue;
+	}
+
+	public function updateOrderSize($product, $orderSize = 0) {
+		$returnValue = FALSE;
+		if($this->basketHandler->updateItemOrderSize($product, $orderSize)){
+			$returnValue = TRUE;
+		}
+
+		return $returnValue;
+	}
+
+	private function getCatUidListRecursive($category, &$childList) {
+		foreach($category->getChildren() as $child) {
+			$children = $child->getChildren();
+			if(!empty($children)){
+				$childList[] = $child->getUid();
+				$this->getCatUidListRecursive($child, $childList);
+			}else {
+				$childList[] = $child->getUid();
+			}
+		}
 	}
 }

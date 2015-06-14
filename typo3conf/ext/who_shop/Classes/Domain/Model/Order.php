@@ -150,4 +150,22 @@ class Order extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->user = $user;
 	}
 
+	/**
+	 * @return int
+	 */
+	public function getOrderDate()
+	{
+		return $this->orderDate;
+	}
+
+	/**
+	 * @param int $orderDate
+	 */
+	public function setOrderDate($orderDate)
+	{
+		$this->orderDate = $orderDate;
+	}
+
+
+
 }

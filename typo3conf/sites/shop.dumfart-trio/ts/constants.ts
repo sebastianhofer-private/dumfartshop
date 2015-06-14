@@ -8,10 +8,10 @@ setting {
 	protocol = http://
 	admPanel = 0
 	no_cache = 0
-	concatenateJs = 1
-	concatenateCss = 1
-	compressJs = 1
-	compressCss = 1
+	concatenateJs = 0
+	concatenateCss = 0
+	compressJs = 0
+	compressCss = 0
 	index_enable = 1
 	sendCacheHeaders = 1
 	sendCacheHeaders_onlyWhenLoginDeniedInBranch = 1
@@ -35,6 +35,8 @@ path {
 uid {
 	pages {
 		root = 1
+
+		basket = 8
 	}
 }
 

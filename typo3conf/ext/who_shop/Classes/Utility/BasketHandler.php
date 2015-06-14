@@ -55,7 +55,9 @@ class BasketHandler implements SingletonInterface {
 
 		// add order object by default if not exist
 		if(!$this->shopSessionHandler->restoreFromSession($this->defaultOrderObjectKey)){
-			$this->defaultOrderObject = array();
+			$this->defaultOrderObject = array(
+				'count' => 0
+			);
 			$this->shopSessionHandler->writeToSession($this->defaultOrderObject, $this->defaultOrderObjectKey);
 		}
 	}
@@ -117,6 +119,14 @@ class BasketHandler implements SingletonInterface {
 		return $returnValue;
 	}
 
+	public function updateItemOrderSize($uid = 0, $orderSize = 0) {
+		$currentOrder = $this->getOrder();
+		$currentOrder[$uid]['orderValue'] = ($currentOrder[$uid]['orderValue'] / $currentOrder[$uid]['orderSize']) * $orderSize;
+		$currentOrder[$uid]['orderSize'] = $orderSize;
+		$this->updateOrder($currentOrder);
+		return TRUE;
+	}
+
 	/**
 	 * @return mixed
 	 */
@@ -129,6 +139,10 @@ class BasketHandler implements SingletonInterface {
 	 * @return $this
 	 */
 	public function updateOrder($order = array()) {
+		if(!isset($order['count'])){
+			$order['count'] = 0;
+		}
+		$order['count'] = count($order) - 1;
 		$this->shopSessionHandler->writeToSession($order, $this->defaultOrderObjectKey);
 		return $this;
 	}

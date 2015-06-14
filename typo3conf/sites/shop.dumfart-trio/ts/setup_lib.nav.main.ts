@@ -35,6 +35,9 @@ lib.nav.main {
 	20 = HMENU
 	20 {
 		entryLevel = 0
+
+		excludeUidList = {$uid.pages.basket}
+
 		1 = TMENU
 		1 {
 			expAll = 1

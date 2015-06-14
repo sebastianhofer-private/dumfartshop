@@ -22,6 +22,7 @@ return array(
 			'extension_builder' => 'a:3:{s:15:"enableRoundtrip";s:0:"";s:15:"backupExtension";s:1:"1";s:9:"backupDir";s:35:"uploads/tx_extensionbuilder/backups";}',
 			'rsaauth' => 'a:1:{s:18:"temporaryDirectory";s:0:"";}',
 			'saltedpasswords' => 'a:2:{s:3:"BE.";a:4:{s:21:"saltedPWHashingMethod";s:41:"TYPO3\\CMS\\Saltedpasswords\\Salt\\PhpassSalt";s:11:"forceSalted";i:0;s:15:"onlyAuthService";i:0;s:12:"updatePasswd";i:1;}s:3:"FE.";a:5:{s:7:"enabled";i:1;s:21:"saltedPWHashingMethod";s:41:"TYPO3\\CMS\\Saltedpasswords\\Salt\\PhpassSalt";s:11:"forceSalted";i:0;s:15:"onlyAuthService";i:0;s:12:"updatePasswd";i:1;}}',
+			'scheduler' => 'a:5:{s:11:"maxLifetime";s:4:"1440";s:11:"enableBELog";s:1:"1";s:15:"showSampleTasks";s:1:"1";s:11:"useAtdaemon";s:1:"0";s:30:"listShowTaskDescriptionAsHover";s:1:"1";}',
 			'who_cat_menu' => 'a:0:{}',
 			'who_shop' => 'a:0:{}',
 		),
@@ -29,7 +30,7 @@ return array(
 	'FE' => array(
 		'activateContentAdapter' => FALSE,
 		'compressionLevel' => '9',
-		'debug' => TRUE,
+		'debug' => FALSE,
 		'loginSecurityLevel' => 'rsa',
 	),
 	'GFX' => array(

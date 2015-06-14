@@ -17,10 +17,19 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class SumViewHelper extends AbstractViewHelper {
 
-	public function render(array $basketArray = array()) {
+	/**
+	 * @param array $basketArray
+	 * @param int $addMailingExpenses
+	 * @param int $mailingExpenses
+	 * @return int
+	 */
+	public function render(array $basketArray = array(), $addMailingExpenses = 0, $mailingExpenses = 0) {
 		$content = 0;
 		foreach($basketArray as $basketItem){
 			$content = $content + $basketItem['orderValue'];
+		}
+		if($addMailingExpenses){
+			$content = $content + $mailingExpenses;
 		}
 		return $content;
 	}

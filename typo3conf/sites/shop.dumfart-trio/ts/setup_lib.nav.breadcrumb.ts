@@ -13,8 +13,8 @@ lib.nav.breadcrumb {
 
 			includeNotInMenu = 1
 
-			# remove extension detail pages from rootline
-			excludeUidList = {$plugin.tx_whoshop.settings.listPageUid}
+			# remove extension list and detail pages from rootline
+			excludeUidList = {$plugin.tx_whoshop.settings.listPageUid},{$plugin.tx_whoshop.settings.detailPage}
 
 			1 = TMENU
 			1 {

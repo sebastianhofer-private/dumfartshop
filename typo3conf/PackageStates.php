@@ -387,6 +387,17 @@ return array (
       array (
       ),
     ),
+    'scheduler' => 
+    array (
+      'manifestPath' => '',
+      'composerName' => 'typo3/cms-scheduler',
+      'state' => 'active',
+      'packagePath' => 'typo3/sysext/scheduler/',
+      'classesPath' => 'Classes/',
+      'suggestions' => 
+      array (
+      ),
+    ),
     'sv' => 
     array (
       'manifestPath' => '',
@@ -620,17 +631,6 @@ return array (
       'composerName' => 'typo3/cms-indexed-search',
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/indexed_search/',
-      'classesPath' => 'Classes/',
-      'suggestions' => 
-      array (
-      ),
-    ),
-    'scheduler' => 
-    array (
-      'manifestPath' => '',
-      'composerName' => 'typo3/cms-scheduler',
-      'state' => 'inactive',
-      'packagePath' => 'typo3/sysext/scheduler/',
       'classesPath' => 'Classes/',
       'suggestions' => 
       array (

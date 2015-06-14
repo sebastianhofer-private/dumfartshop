@@ -7,11 +7,11 @@ if (!defined('TYPO3_MODE')) {
 	'WHO.' . $_EXTKEY,
 	'Product',
 	array(
-		'Product' => 'list, show, addToBasket, removeFromBasket',
+		'Product' => 'list, show, addToBasket, removeFromBasket, ajax',
 	),
 	// non-cacheable actions
 	array(
-		'Product' => 'addToBasket, removeFromBasket',
+		'Product' => 'addToBasket, removeFromBasket, ajax',
 		
 	)
 );
@@ -33,11 +33,19 @@ if (!defined('TYPO3_MODE')) {
 	'WHO.' . $_EXTKEY,
 	'OrderItem',
 	array(
-		'OrderItem' => 'basketList',
+		'OrderItem' => 'basketList, bindingOrder, orderComplete',
 	),
 	// non-cacheable actions
 	array(
-		'OrderItem' => 'basketList',
+		'OrderItem' => 'basketList, bindingOrder',
 
 	)
+);
+
+$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['ajaxTest'] = 'EXT:whoshop/Classes/Utility/AjaxTest.php';
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks']['WHO\WhoShop\Task\WorkOrders'] = array(
+	'extension' => $_EXTKEY,
+	'title' => 'work through orders',
+	'description' => 'works through orders and send mails',
 );

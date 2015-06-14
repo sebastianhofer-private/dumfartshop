@@ -19,6 +19,7 @@ plugin.tx_whoshop {
 		maxMenuDepth = {$plugin.tx_whoshop.settings.maxMenuDepth}
 		menuType = {$plugin.tx_whoshop.settings.menuType}
 		listPageUid = {$plugin.tx_whoshop.settings.listPageUid}
+		detailPage = {$plugin.tx_whoshop.settings.detailPage}
 	}
 }
 
@@ -99,7 +100,7 @@ config.tx_extbase{
 
 			WHO\WhoShop\Domain\Model\User {
 				mapping {
-					recordType = 0
+					recordType = Tx_Extbase_Domain_Model_FrontendUser
 					tableName = fe_users
 					columns {
 						lockToDomain {
@@ -113,6 +114,9 @@ config.tx_extbase{
 		objects {
 			\TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository {
 				className = WHO\whoshop\Domain\Repository\CategoryRepository
+			}
+			\TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository {
+				className = WHO\WhoShop\Domain\Repository\UserRepository
 			}
 		}
 	}

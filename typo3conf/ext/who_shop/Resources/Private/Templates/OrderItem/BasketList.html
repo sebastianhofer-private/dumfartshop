@@ -1,49 +1,93 @@
 {namespace who=WHO\WhoShop\ViewHelpers}
 <div class="container-fluid">
-	<f:for each="{products}" as="product"><who:basket.entry uid="{product.uid}" basketArray="{basket}">
-		<div class="row basket-container">
-			<div class="col-zero-12 basket-container-header">
-				<p class="h1">{product.title}
-					<f:if condition="{product.publishingNumber}">
-						<span class="publishing-number">({product.publishingNumber})</span>
-					</f:if>
-				</p>
-			</div>
-			<div class="basket-container-left col-zero-12">
-				<div class="basket-container-content">
-					<div class="col-zero-2 basket-image">
-						<img src="{f:uri.image(src:'{product.image.uid}', treatIdAsReference:'1', maxWidth:'150')}" class="img-responsive img-detail-thumb" alt=""/>
-					</div>
-					<div class="col-zero-5 col-zero-offset-1 basket-text">
-						<f:if condition="{product.additionalInformation}">
-							<p>{product.additionalInformation}</p>
+	<f:if condition="{products}">
+		<f:then>
+		<f:for each="{products}" as="product"><who:basket.entry uid="{product.uid}" basketArray="{basket}">
+			<div class="row basket-container basket-container-{product.uid}">
+				<div class="col-zero-12 basket-container-header">
+					<p class="h1">{product.title}
+						<f:if condition="{product.publishingNumber}">
+							<span class="publishing-number">({product.publishingNumber})</span>
 						</f:if>
-					</div>
-					<div class="col-zero-3 col-zero-offset-1 basket-container-right">
-						<input type="text" size="2" value="{pieces}" class="text-right"/>
-						<p class="lead"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{money}</f:format.currency></p>
+					</p>
+				</div>
+				<div class="basket-container-left col-zero-12">
+					<div class="basket-container-content">
+						<div class="col-zero-2 basket-image">
+							<img src="{f:uri.image(src:'{product.image.uid}', treatIdAsReference:'1', maxWidth:'150')}" class="img-responsive img-detail-thumb" alt=""/>
+						</div>
+						<div class="col-zero-5 col-zero-offset-1 basket-text">
+							<f:if condition="{product.additionalInformation}">
+								<p>{product.additionalInformation}</p>
+							</f:if>
+						</div>
+						<div class="col-zero-3 col-zero-offset-1 basket-container-right">
+							<input id="order-size-{product.uid}" type="text" size="2" value="{pieces}" class="text-right order-size-basketlist" data-single-price="{product.price}" data-targeturl="{f:uri.page(pageType:'1105')}" data-product="{product.uid}"/>
+							<p class="lead" data-single-value="{product.price}"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{money}</f:format.currency></p>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="col-zero-3 col-zero-offset-9 basket-container-footer">
-				<button type="button" class="btn btn-danger btn-orderinf-delete">löschen</button>
+				<div class="col-zero-3 col-zero-offset-9 basket-container-footer">
+					<button type="button" class="btn btn-danger btn-orderinf-delete basket-event" data-parent-element="basket-container-{product.uid}" data-basket-event="removeBasket" data-targeturl="{f:uri.page(pageType:'1105')}" data-product="{product.uid}">löschen</button>
+				</div>
 			</div>
-		</div>
-	</who:basket.entry>
-	</f:for>
+		</who:basket.entry>
+		</f:for>
+		</f:then>
+		<f:else>
+			<p>Ihr Warenkorb ist leer.</p>
+		</f:else>
+	</f:if>
 	<div class="row basket-summary">
 		<div class="col-xs-9">
 			<p class="h4">Bestellsumme:</p>
 		</div>
 		<div class="col-xs-3">
-			<p class="lead">
+			<p class="lead basket-sum" data-sum="{who:basket.sum(basketArray:'{basket}')}">
 				<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">
 					<who:basket.sum basketArray="{basket}" />
 				</f:format.currency>
 			</p>
 		</div>
 	</div>
+	<div class="row basket-summary">
+		<div class="col-xs-9">
+			<p class="h5">Versandtkostenpauschale:</p>
+		</div>
+		<div class="col-xs-3">
+			<p class="lead basket-mail-expenses" data-sum="{who:basket.sum(basketArray:'{basket}')}">
+				<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">
+					5
+				</f:format.currency>
+			</p>
+		</div>
+	</div>
+	<div class="row basket-summary order-total">
+		<div class="col-xs-9">
+			<p class="h4">Gesamtsumme:</p>
+		</div>
+		<div class="col-xs-3">
+			<p class="lead basket-total" data-sum="{who:basket.sum(basketArray:'{basket}')}">
+				<f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">
+					<who:basket.sum basketArray="{basket}" addMailingExpenses="1" mailingExpenses="5"/>
+				</f:format.currency>
+			</p>
+		</div>
+	</div>
+
+	<f:if condition="{userIsLoggedIn}">
+		<f:then>
+			<f:link.action pageUid="8" action="bindingOrder" controller="OrderItem">
+				<button type="button" id="binding-order" class="btn btn-primary">verbindlich bestellen <span class="glyphicon glyphicon-chevron-right"></span></button>
+			</f:link.action>
+		</f:then>
+		<f:else>
+			<f:link.page pageUid="11">
+				<button type="button" class="btn btn-primary">Login <span class="glyphicon glyphicon-chevron-right"></span></button>
+			</f:link.page>
+		</f:else>
+	</f:if>
 </div>
 
 <f:comment>
@@ -82,14 +126,13 @@
 		$(document).ready(function () {
 			// (1) define some post-parameters with action, controller and stuff for the action
 			var params = {
-				tx_myextension_pi1: {
-					action : "ajaxTest",
-					controller : "Ajax",
-					someOtherParamsForAction: "..."
+				tx_whoshop_product: {
+					action : "ajax",
+					controller : "Product"
 				}
 			};
 			// (2) do the ajax-call
-			$.post(]]>{f:uri.page(pageType:'666')}<![CDATA[, params, function (json) {
+			$.post(]]>{f:uri.page(pageType:'1105'), }<![CDATA[, params, function (json) {
 			// (3) evaluate the response from server
 			if (json && json.success) {
 				$("#myContainer").html(json.content);
@@ -106,10 +149,70 @@
 	</script>
 
 
+
+
+	<script type="text/javascript">
+		<![CDATA[//<![CDATA[
+		$(document).ready(function () {
+			// (1) define some post-parameters with action, controller and stuff for the action
+			alert('the script will be started now.');
+			var params = {
+				tx_whoshop_product: {
+					action : "ajax",
+					controller : "Product"
+				}
+			};
+			// (2) do the ajax-call
+			$.ajax({
+				type:'POST',
+				url: "]]>{f:uri.page(pageType:'1105')}<![CDATA[",
+			dataType: 'text',
+					success: function(json){
+				$("#myContainer").html(json);
+				console.log(json);
+			},
+			error: function(error) {
+				alert('error')
+				alert(error)
+			}
+		});
+		});
+		]]>//]]>
+	</script>
 	index.php
 	?type=666
 	&tx_myextension_pi1[action]=ajaxTest
 	&tx_myextension_pi1[controller]=Ajax
 	&tx_myextension_pi1[someOtherParamsForAction]=...
+
+
+
+	<script type="text/javascript">
+		<![CDATA[//<![CDATA[
+		$(document).ready(function () {
+			// (1) define some post-parameters with action, controller and stuff for the action
+			alert('the script will be started now.');
+			var params = {
+				tx_whoshop_product: {
+					forwardAction : "removeFromBasket"
+				}
+			};
+			// (2) do the ajax-call
+			$.ajax({
+				//type:'POST',
+				url: ']]>{f:uri.page(pageType:'1105')}<![CDATA[',
+			data: params,
+					success: function(json){
+				$("#myContainer").html(json.content);
+				console.log(json);
+			},
+			error: function(error) {
+				alert('error')
+				alert(error)
+			}
+		});
+		});
+		]]>//]]>
+	</script>
 
 </f:comment>

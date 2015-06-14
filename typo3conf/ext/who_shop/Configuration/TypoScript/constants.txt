@@ -17,6 +17,7 @@ plugin.tx_whoshop {
 		storagePid = 1
 		rootParent = 0
 		maxMenuDepth = 3
+		detailPage = 13
 	}
 }
 

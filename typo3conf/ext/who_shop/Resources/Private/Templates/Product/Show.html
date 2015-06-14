@@ -17,26 +17,19 @@
 
 				<f:if condition="{articleInBasket}">
 					<f:then>
-						<f:form action="removeFromBasket" controller="Product" class="form-inline" additionalParams="{tx_whoshop_product:{category: category}}">
-								<f:form.hidden name="product" value="{product}" />
-								<f:form.hidden name="category" value="{category}" />
-								<f:form.button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-shopping-cart"></span> aus Warenkorb entfernen <span class="glyphicon glyphicon-chevron-right"></span></f:form.button>
-						</f:form>
+						<button class="btn btn-danger basket-event" data-basket-event="remove" data-order-size="1" data-targetUrl="{f:uri.page(pageType:'1105')}" data-product="{product.uid}"><span class="glyphicon glyphicon-shopping-cart"></span> aus Warenkorb entfernen <span class="glyphicon glyphicon-chevron-right"></span></button>
 					</f:then>
 					<f:else>
-						<f:form action="addToBasket" controller="Product" class="form-inline" additionalParams="{tx_whoshop_product:{category: category}}">
 
-							<f:form.hidden name="product" value="{product}" />
-							<f:form.hidden name="category" value="{category}" />
-							<f:form.button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></f:form.button>
-							<div class="form-group">
+						<div class="form-inline">
+							<button class="btn btn-primary basket-event" data-basket-event="add" data-order-size="1" data-targeturl="{f:uri.page(pageType:'1105')}" data-product="{product.uid}"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></button>
+							<div class="form-group order-size">
 								<div class="input-group">
-									<f:form.textfield name="orderSize" value="1" class="form-control" size="1" maxlength="2"/>
+									<f:form.textfield name="orderSize" id="order-size-single" value="1" class="form-control" size="1" maxlength="2"/>
 									<div class="input-group-addon">Stk.</div>
 								</div>
 							</div>
-
-						</f:form>
+						</div>
 					</f:else>
 				</f:if>
 			</div>

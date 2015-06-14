@@ -1,0 +1,70 @@
+<page st xmlns="http://www.w3.org/1999/html" backtop="28mm" backbottom="0mm" backleft="0mm" backright="0mm">
+	<page_header>
+		<h1>Dumfart Shop</h1>
+	</page_header>
+	<f:debug>{orderItems}</f:debug>
+	<div id="adresses">
+		<table>
+			<tr>
+				<td style="width: 100mm; height: 40mm; line-height: 5mm; padding-top: 18mm;">
+					{user.firstname} {user.lastname}<br/>
+					{user.address} <br/>
+					{user.plz} {user.city}
+				</td>
+				<td style="width: 75mm; height: 40mm; line-height: 5mm; padding-top: 5mm;">
+					Karl Dumfart<br/>
+					Musterstraße 123 <br/>
+					12345 Eidenberg <br/><br/>
+					Tel.: +43 123 9876543 <br/>
+					E-Mail: info@dumfart-trio.at <br/><br/>
+					Datum: 14.06.2015<br/>
+					Rechnungsnummer: 20150614001
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="text" style="margin-top: 9mm;">
+		<div id="subject">
+			<p><b>Rechung zu Ihrer Bestellung vom <f:format.date format="d.m.Y">{order.date}</f:format.date> (<f:format.date format="Ymd">{order.date}</f:format.date>)<br/><br/><br/></b></p>
+		</div>
+		<div id="bill-text">
+			<p>Sehr geehrter {user.name}, <br/><br/>
+				vielen Dank für Ihre Bestellung. Für die von Ihnen bestellte Ware berechnen wir Ihnen folgendes.</p>
+
+			<table style="margin-top: 4mm;line-height: 15mm;">
+				<thead>
+				<tr>
+					<th scope="col" style="width: 95mm; ">
+						Position
+					</th>
+					<th scope="col" style="width: 20mm; ">
+						Stückzahl
+					</th>
+					<th scope="col" style="width: 20mm; ">
+						Stückpreis
+					</th>
+					<th scope="col" style="width: 20mm; ">
+						Gesamtpreis
+					</th>
+				</tr>
+				</thead>
+				<tfoot style="margin-top: 15mm;">
+				<tr><td colspan="3" style="padding-top: 3mm; text-align: right;"><b>Summe: </b></td><td style="padding-top: 3mm; text-align: right;"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{order.orderSum}</f:format.currency></td></tr>
+				</tfoot>
+				<tbody>
+					<f:for each="{orderItems}" as="item">
+						<tr><td style="padding-top: 2mm; ">{item.itemProduct.title}</td><td style="padding-top: 2mm; ">{item.item.orderSize}</td><td style="padding-top: 2mm; text-align: right;">á <f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{item.itemProduct.price}</f:format.currency></td><td style="padding-top: 2mm; text-align: right;"><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{item.itemPriceSum}</f:format.currency></td></tr>
+					</f:for>
+				</tbody>
+			</table>
+			<p style="margin-top: 4mm;">Bitte überweisen Sie den Betrag von <b><f:format.currency currencySign="€" decimalSeparator="," thousandsSeparator=".">{order.orderSum}</f:format.currency></b> innerhalb der nächsten 14 Tage auf folgendes Konto:</p>
+			<p>Inhalber: Karl Dumfart<br/>
+				Kontonummer: 123458<br/>
+				IBAN: AT540000023425250205252</p>
+
+			<p>
+				<br/><br/>Mit freundlichen Grüßen <br/> Karl Dumfart
+			</p>
+		</div>
+	</div>
+</page>
