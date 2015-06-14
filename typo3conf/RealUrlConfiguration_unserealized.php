@@ -1,6 +1,13 @@
 <?php
+
+$domain = 'shop.dumfart-trio.at';
+
+if(\TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isDevelopment()){
+	$domain = 'shop.dumfart.dev';
+}
+
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']=array (
-	'shop.dumfart.dev' =>
+	$domain =>
 		array (
 			'init' =>
 				array (
@@ -35,4 +42,4 @@ $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']=array (
 						),
 				),
 		),
-)
+);
