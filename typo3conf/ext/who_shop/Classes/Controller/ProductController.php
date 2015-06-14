@@ -128,8 +128,8 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->assignArray = array(
 			'product' => $product,
 			'articleInBasket' => $this->basketHandler->findItemInOrder($product->getUid())['productFound'],
-			'category' => $this->request->getArgument('category')
-			//'userIsLoggedIn' => $this->shopSessionHandler->testUser()
+			'category' => $this->request->getArgument('category'),
+			'userIsLoggedIn' => $this->basketHandler->loginCheck()
 		);
 		$this->view->assignMultiple($this->assignArray);
 	}
@@ -139,14 +139,17 @@ class ProductController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 * @return string
 	 */
 	public function addToBasketAction(\WHO\WhoShop\Domain\Model\Product $product) {
+		$success = true;
 		$arguments = $this->request->getArguments();
 		if(!$this->basketHandler->addItemToOrder($product->getUid(),$this->request->getArgument('orderSize'),$product->getPrice())){
-			//There should be done something. An error or soomething else...
+			$success = false;
 		}
+
+
 
 		//$this->forward('show','Product','whoshop', $this->request->getArguments());
 		return json_encode(array(
-			'success' => true,
+			'success' => $success,
 			'arguments' => $arguments,
 		));
 	}

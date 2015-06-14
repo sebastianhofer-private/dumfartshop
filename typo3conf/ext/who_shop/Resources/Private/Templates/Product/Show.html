@@ -14,22 +14,30 @@
 			</f:if>
 			<f:render partial="Product/Tracks" arguments="{tracks: product.tracks}"/>
 			<div class="col-zero-7">
+				<f:if condition="{userIsLoggedIn}">
+				<f:then>
+					<f:if condition="{articleInBasket}">
+						<f:then>
+							<button class="btn btn-danger basket-event" data-basket-event="remove" data-order-size="1" data-targetUrl="{f:uri.page(pageType:'1105')}" data-product="{product.uid}"><span class="glyphicon glyphicon-shopping-cart"></span> aus Warenkorb entfernen <span class="glyphicon glyphicon-chevron-right"></span></button>
+						</f:then>
+						<f:else>
 
-				<f:if condition="{articleInBasket}">
-					<f:then>
-						<button class="btn btn-danger basket-event" data-basket-event="remove" data-order-size="1" data-targetUrl="{f:uri.page(pageType:'1105')}" data-product="{product.uid}"><span class="glyphicon glyphicon-shopping-cart"></span> aus Warenkorb entfernen <span class="glyphicon glyphicon-chevron-right"></span></button>
-					</f:then>
-					<f:else>
-
-						<div class="form-inline">
-							<button class="btn btn-primary basket-event" data-basket-event="add" data-order-size="1" data-targeturl="{f:uri.page(pageType:'1105')}" data-product="{product.uid}"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></button>
-							<div class="form-group order-size">
-								<div class="input-group">
-									<f:form.textfield name="orderSize" id="order-size-single" value="1" class="form-control" size="1" maxlength="2"/>
-									<div class="input-group-addon">Stk.</div>
+							<div class="form-inline">
+								<button class="btn btn-primary basket-event" data-basket-event="add" data-order-size="1" data-targeturl="{f:uri.page(pageType:'1105')}" data-product="{product.uid}"><span class="glyphicon glyphicon-shopping-cart"></span> Warenkorb <span class="glyphicon glyphicon-chevron-right"></span></button>
+								<div class="form-group order-size">
+									<div class="input-group">
+										<f:form.textfield name="orderSize" id="order-size-single" value="1" class="form-control" size="1" maxlength="2"/>
+										<div class="input-group-addon">Stk.</div>
+									</div>
 								</div>
 							</div>
-						</div>
+						</f:else>
+					</f:if>
+				</f:then>
+					<f:else>
+						<f:link.page pageUid="11">
+							<button class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> bitte einloggen <span class="glyphicon glyphicon-chevron-right"></span></button>
+						</f:link.page>
 					</f:else>
 				</f:if>
 			</div>
